@@ -48,6 +48,9 @@ public class Game extends JFrame{
         main.add(gridPanel,BorderLayout.WEST);
         main.add(blockPanel,BorderLayout.EAST);
 
+        //main.add(worldPanel,BorderLayout.WEST);
+        //main.add(workAreaPanel,BorderLayout.EAST);
+
         // work area (center)
         add(main);
     }
