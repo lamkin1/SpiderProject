@@ -5,9 +5,8 @@ import java.awt.event.*;
 public class WorkAreaPanel extends JPanel implements ActionListener, MouseListener, MouseMotionListener{
 
     public WorkAreaPanel(){
+        this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(Color.WHITE);
-        JButton temp = new JButton("hi");
-        this.add(temp);
     }
 
 

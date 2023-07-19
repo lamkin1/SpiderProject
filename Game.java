@@ -36,9 +36,7 @@ public class Game extends JFrame{
         gridPanel.add(green);
         gridPanel.add(black);
 
-
         WorkAreaPanel workAreaPanel = new WorkAreaPanel();
-
 
         JPanel levels = new JPanel();
         JButton level1 = new JButton("1");
@@ -61,7 +59,7 @@ public class Game extends JFrame{
     public static void main(String[] args) {
         Game Game = new Game();
         Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Game.setSize(800,600);
+        Game.setSize(1000,600);
         Game.setVisible(true);
         Game.setResizable(false);
     }
