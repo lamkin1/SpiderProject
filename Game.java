@@ -36,22 +36,20 @@ public class Game extends JFrame{
         gridPanel.add(green);
         gridPanel.add(black);
 
-        JPanel blockPanel = new JPanel(); // change to WorkAreaPanel
-        // WorkAreaPanel workAreaPanel = new WorkAreaPanel();
 
-        JButton temp = new JButton("hi");
-        blockPanel.add(temp);
+        WorkAreaPanel workAreaPanel = new WorkAreaPanel();
+
 
         JPanel levels = new JPanel();
         JButton level1 = new JButton("1");
         levels.add(level1);
 
         gridPanel.setBorder(blackline);
-        blockPanel.setBorder(blackline);
+        workAreaPanel.setBorder(blackline);
         levels.setBorder(blackline);
 
         main.add(gridPanel,BorderLayout.WEST);
-        main.add(blockPanel,BorderLayout.EAST);
+        main.add(workAreaPanel,BorderLayout.EAST);
         main.add(levels, BorderLayout.NORTH);
 
         //main.add(worldPanel,BorderLayout.WEST);
