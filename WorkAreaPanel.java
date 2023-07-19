@@ -2,18 +2,22 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
-public class WorkAreaPanel extends JPanel implements ActionListener, MouseListener, MouseMotionListener{
-
+public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionListener{
+    private int x1, x2, y1, y2;
+    //ConnectHelper connectHelper = new ConnectHelper();
     public WorkAreaPanel(){
         this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(Color.WHITE);
     }
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    public void paintComponent(Graphics g){
 
     }
+
+//    public void delete(ParentBlock parentBlock){
+//
+//    }
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -22,7 +26,8 @@ public class WorkAreaPanel extends JPanel implements ActionListener, MouseListen
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        x1 = e.getX();
+        y1 = e.getY();
     }
 
     @Override
@@ -42,7 +47,9 @@ public class WorkAreaPanel extends JPanel implements ActionListener, MouseListen
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        x2 = e.getX();
+        y2 = e.getY();
+        repaint();
     }
 
     @Override
