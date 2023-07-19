@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Spider {
     private int x;
     private int y;
@@ -42,4 +44,40 @@ public class Spider {
                 break;
         }
     }
+
+    public void draw(Graphics g){
+        g.setColor(Color.BLACK);
+        switch(this.direction){
+            case "up":
+                g.fillOval(this.x, this.y, 15, 20);
+                //still need to draw legs
+                g.setColor(Color.WHITE);
+                g.fillOval(this.x-2, this.y+10, 2, 2);
+                g.fillOval(this.x+2, this.y+10, 2, 2);
+                break;
+            case "down":
+                g.fillOval(this.x, this.y, 15, 20);
+
+                g.setColor(Color.WHITE);
+                g.fillOval(this.x-2, this.y-10, 2, 2);
+                g.fillOval(this.x+2, this.y-10, 2, 2);
+                break;
+            case "left":
+                g.fillOval(this.x, this.y, 20, 15);
+
+                g.setColor(Color.WHITE);
+                g.fillOval(this.x-10, this.y+2, 2, 2);
+                g.fillOval(this.x-10, this.y-2, 2, 2);
+                break;
+            case "right":
+                g.fillOval(this.x, this.y, 20, 15);
+
+                g.setColor(Color.WHITE);
+                g.fillOval(this.x+10, this.y+2, 2, 2);
+                g.fillOval(this.x+10, y-2, 2, 2);
+                break;
+        }
+    }
+
+    //public void paintCell()
 }
