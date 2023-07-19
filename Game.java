@@ -2,7 +2,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
-public class Game extends JFrame implements ActionListener{
+public class Game extends JFrame{
 
     public Game(){
         super("Spider World");
@@ -12,9 +12,10 @@ public class Game extends JFrame implements ActionListener{
 
         // west panel
         setLayout(new BorderLayout());
-        JPanel gridPanel = new JPanel();
+        JPanel gridPanel = new JPanel(); // change to WorldPanel
+        // WorldPanel worldPanel = new WorldPanel();
 
-        // Buttons
+        // Buttons (go into WorldPanel)
         JButton step = new JButton("Step");
         JButton turn = new JButton("Turn");
         JButton red = new JButton("Red");
@@ -22,12 +23,6 @@ public class Game extends JFrame implements ActionListener{
         JButton green = new JButton("Green");
         JButton black = new JButton("Black");
 
-        step.addActionListener(this);
-        turn.addActionListener(this);
-        red.addActionListener(this);
-        blue.addActionListener(this);
-        green.addActionListener(this);
-        black.addActionListener(this);
 
         red.setBackground(Color.RED);
         blue.setBackground(Color.BLUE);
@@ -41,7 +36,8 @@ public class Game extends JFrame implements ActionListener{
         gridPanel.add(green);
         gridPanel.add(black);
 
-        JPanel blockPanel = new JPanel();
+        JPanel blockPanel = new JPanel(); // change to WorkAreaPanel
+        // WorkAreaPanel workAreaPanel = new WorkAreaPanel();
 
         JButton temp = new JButton("hi");
         blockPanel.add(temp);
@@ -64,11 +60,5 @@ public class Game extends JFrame implements ActionListener{
         Game.setResizable(false);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
 
-        if(e.getSource().getClass().getName().equals("javax.swing.JCheckBox")) {
-
-        }
-    }
 }
