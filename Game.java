@@ -42,11 +42,17 @@ public class Game extends JFrame{
         JButton temp = new JButton("hi");
         blockPanel.add(temp);
 
+        JPanel levels = new JPanel();
+        JButton level1 = new JButton("1");
+        levels.add(level1);
+
         gridPanel.setBorder(blackline);
         blockPanel.setBorder(blackline);
+        levels.setBorder(blackline);
 
         main.add(gridPanel,BorderLayout.WEST);
         main.add(blockPanel,BorderLayout.EAST);
+        main.add(levels, BorderLayout.NORTH);
 
         //main.add(worldPanel,BorderLayout.WEST);
         //main.add(workAreaPanel,BorderLayout.EAST);
