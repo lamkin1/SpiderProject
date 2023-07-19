@@ -49,11 +49,10 @@ public class Game extends JFrame{
         levels.setBorder(blackline);
 
         main.add(gridPanel,BorderLayout.WEST);
-        main.add(workAreaPanel,BorderLayout.EAST);
         main.add(levels, BorderLayout.NORTH);
 
         //main.add(worldPanel,BorderLayout.WEST);
-        //main.add(workAreaPanel,BorderLayout.EAST);
+        main.add(workAreaPanel,BorderLayout.EAST);
 
         // work area (center)
         add(main);
