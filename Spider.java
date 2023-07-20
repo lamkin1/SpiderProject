@@ -4,6 +4,7 @@ public class Spider {
     private int x;
     private int y;
     private String direction;
+    private String color;
 
     public Spider(int x, int y, String direction){
         this.x = x;
@@ -79,5 +80,7 @@ public class Spider {
         }
     }
 
-    //public void paintCell()
+    public void paintCell(){
+        //spider sets cell's color
+    }
 }
