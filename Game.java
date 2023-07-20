@@ -19,6 +19,7 @@ public class Game extends JFrame{
         levels.add(level1);
 
         workAreaPanel.setBorder(blackline);
+        worldPanel.setBorder(blackline);
         levels.setBorder(blackline);
 
         mainPanel.add(levels, BorderLayout.NORTH);
@@ -28,7 +29,7 @@ public class Game extends JFrame{
         add(mainPanel);
     }
 
-    public static void mainPanel(String[] args) {
+    public static void main(String[] args) {
         Game Game = new Game();
         Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Game.setSize(1000,600);

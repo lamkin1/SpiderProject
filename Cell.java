@@ -2,30 +2,48 @@ import java.awt.*;
 
 public class Cell {
     private int id;
-    private Boolean diamond, spider, empty;
+    Spider spider
+    private Boolean hasDiamond, hasSpider, isEmpty;
     private Color color = Color.black; // default is black
 
-    public Cell(int id, Boolean diamond, Boolean spider, Boolean empty){
+    public Cell(int id, Boolean hasDiamond, Boolean hasSpider, Boolean isEmpty){
         this.id = id;
-        this.diamond = diamond;
-        this.spider = spider;
-        this.empty = empty;
+        this.hasDiamond = hasDiamond;
+        this.hasSpider = hasSpider;
+        this.isEmpty = isEmpty;
+        spider = new Spider(x, y, "up");
     }
+
+    // 25 by 25 for block
+    public void draw(Graphics g){
+        g.setColor(this.color);
+        g.drawRect(x, y, 25, 25);
+
+        if (hasSpider){
+
+            spider.draw(g);
+        }
+
+        if (hasDiamond){
+
+        }
+    }
+
 
     public int getId() {
         return id;
     }
 
-    public Boolean getDiamond() {
-        return diamond;
+    public Boolean gethasDiamond() {
+        return hasDiamond;
     }
 
-    public Boolean getEmpty() {
-        return empty;
+    public Boolean getisEmpty() {
+        return isEmpty;
     }
 
-    public Boolean getSpider() {
-        return spider;
+    public Boolean getHasSpider() {
+        return hasSpider;
     }
 
     public Color getColor() {
@@ -36,12 +54,12 @@ public class Cell {
         this.id = id;
     }
 
-    public void setDiamond(Boolean diamond) {
-        this.diamond = diamond;
+    public void sethasDiamond(Boolean hasDiamond) {
+        this.hasDiamond = hasDiamond;
     }
 
-    public void setEmpty(Boolean empty) {
-        this.empty = empty;
+    public void setisEmpty(Boolean isEmpty) {
+        this.isEmpty = isEmpty;
     }
 
     public void setSpider(Boolean spider) {
