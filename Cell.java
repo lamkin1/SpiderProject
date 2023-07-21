@@ -79,7 +79,7 @@ public class Cell {
     }
 
     public void setSpider(Boolean spider) {
-        this.spider = spider;
+        this.hasSpider = spider;
     }
 
     public void setColor(Color color) {
