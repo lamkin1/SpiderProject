@@ -1,12 +1,13 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Observable;
 
 public class DataSource extends Observable {
     private static DataSource instance;
-    private int SpiderX;
-    private int SpiderY;
-    private int GameWidth;
-    private int GameHeight;
+    private int[] SpiderLocation = {0, 0};
+    private int[] GameSize = {0, 0};
+    private int level;
 
     private DataSource(){
     }
@@ -18,28 +19,33 @@ public class DataSource extends Observable {
         return instance;
     }
 
-    public void setSpiderX(int x){
-        SpiderX = x;
+    public void setSpiderLocation(int x, int y){
+        SpiderLocation[0] = x;
+        SpiderLocation[1] = y;
+        setChanged();
+        notifyObservers();
     }
-    public int getSpiderX(){
-        return SpiderX;
+
+    public void setGameSize(int width, int height){
+        GameSize[0] = width;
+        GameSize[1] = height;
+        setChanged();
+        notifyObservers();
     }
-    public void setSpiderY(int y){
-        SpiderY = y;
+
+    public void setLevel(int level){
+        this.level = level;
     }
-    public int getSpiderY(){
-        return SpiderY;
+
+    public int[] getSpiderLocation(){
+        return SpiderLocation;
     }
-    public void setGameWidth(int width){
-        GameWidth = width;
+
+    public int[] getGameSize(){
+        return GameSize;
     }
-    public int getGameWidth(){
-        return GameWidth;
-    }
-    public void setGameHeight(int height){
-        GameHeight = height;
-    }
-    public int getGameHeight(){
-        return GameHeight;
+
+    public int getLevel(){
+        return level;
     }
 }
