@@ -1,12 +1,13 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Observable;
 
-public class DataSource extends Observable {
+public class DataSource extends{
     private static DataSource instance;
     private int[] SpiderLocation = {0, 0};
     private int[] GameSize = {0, 0};
+    private ArrayList<Block> blocks = new ArrayList<>;
+    private ArrayList<Cell> cells = new ArrayList<Cell>;
     private int level;
 
     private DataSource(){
@@ -22,21 +23,15 @@ public class DataSource extends Observable {
     public void setSpiderLocation(int x, int y){
         SpiderLocation[0] = x;
         SpiderLocation[1] = y;
-        setChanged();
-        notifyObservers();
     }
 
     public void setGameSize(int width, int height){
         GameSize[0] = width;
         GameSize[1] = height;
-        setChanged();
-        notifyObservers();
     }
 
     public void setLevel(int level){
         this.level = level;
-        setChanged();
-        notifyObservers();
     }
 
     public int[] getSpiderLocation(){
@@ -49,5 +44,13 @@ public class DataSource extends Observable {
 
     public int getLevel(){
         return level;
+    }
+
+    public ArrayList<Block> getBlockArrayInstance(){
+        return blocks;
+    }
+
+    public ArrayList<Cell> getCellArrayInstance(){
+        return cells;
     }
 }
