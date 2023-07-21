@@ -6,8 +6,9 @@ public class DataSource{
     private static DataSource instance;
     private int[] SpiderLocation = {0, 0};
     private int[] GameSize = {0, 0};
-    private ArrayList<Block> blocks = new ArrayList<>;
-    private ArrayList<Cell> cells = new ArrayList<Cell>;
+    private ArrayList<Block> blocks = new ArrayList<>();
+    private ArrayList<Cell> cells = new ArrayList<>();
+    private ArrayList<Diamond> diamonds = new ArrayList<>();
     private int level;
 
     private DataSource(){
@@ -25,21 +26,21 @@ public class DataSource{
         SpiderLocation[1] = y;
     }
 
+    public int[] getSpiderLocation(){
+        return SpiderLocation;
+    }
+
     public void setGameSize(int width, int height){
         GameSize[0] = width;
         GameSize[1] = height;
     }
 
-    public void setLevel(int level){
-        this.level = level;
-    }
-
-    public int[] getSpiderLocation(){
-        return SpiderLocation;
-    }
-
     public int[] getGameSize(){
         return GameSize;
+    }
+
+    public void setLevel(int level){
+        this.level = level;
     }
 
     public int getLevel(){
@@ -52,5 +53,11 @@ public class DataSource{
 
     public ArrayList<Cell> getCellArrayInstance(){
         return cells;
+    }
+
+    public void setDiamondArray(ArrayList<Diamond> Diamonds){
+        for(Diamond D : Diamonds){
+            diamonds.add(D);
+        }
     }
 }
