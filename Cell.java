@@ -21,10 +21,9 @@ public class Cell {
     }
 
     // 25 by 25 for block
-    public void draw(int x, int y, Graphics g){
+    public void draw(Graphics g){
         g.setColor(this.color);
         g.drawRect(x, y, 25, 25);
-        //
 
         if (hasSpider){
             spider.draw(g);
