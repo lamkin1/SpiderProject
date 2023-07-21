@@ -2,7 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class DataSource extends{
+public class DataSource{
     private static DataSource instance;
     private int[] SpiderLocation = {0, 0};
     private int[] GameSize = {0, 0};
