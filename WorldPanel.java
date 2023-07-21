@@ -37,8 +37,8 @@ public class WorldPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
-            if (((JButton) e.getSource()).getText().equals("Run")) {
-                System.out.println("selected run");
+            if (((JButton) e.getSource()).getText().equals("Play")) {
+                System.out.println("selected play");
                 world.run();
             }
         }
