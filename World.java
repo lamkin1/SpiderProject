@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.LinkedList;
 
 public class World {
@@ -5,15 +6,15 @@ public class World {
     private LinkedList<Cell> cells = new LinkedList<>();
     private LinkedList<Block> blocks = new LinkedList<Block>();
 
-    public void draw(){
+    public void draw(Graphics g){
         for(Cell cell : cells){
-            cell.draw();
+            cell.draw(g);
         }
     }
 
     public void run(){
         for(Block block : Blocks){
-            block.run;
+            block.run();
         }
     }
 
