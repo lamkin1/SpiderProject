@@ -1,23 +1,20 @@
 import java.awt.*;
 
 public class Cell {
-    private int id;
     private int x, y;
     Spider spider;
     Diamond d;
     private Boolean hasDiamond, hasSpider, isEmpty;
-    private Color color = Color.black; // default is black
+    private Color color = Color.black;
 
-    public Cell(int x, int y, int id, Boolean hasDiamond, Boolean hasSpider, Boolean isEmpty, Color diamondColor){
+    public Cell(int x, int y, Boolean hasDiamond, Boolean hasSpider, Boolean isEmpty, Color diamondColor){
         this.x = x;
         this.y = y;
-        this.id = id;
         this.hasDiamond = hasDiamond;
         this.hasSpider = hasSpider;
         this.isEmpty = isEmpty;
         spider = new Spider(x, y, "up");
         d = new Diamond(diamondColor, x, y);
-
     }
 
     // 25 by 25 for block
@@ -38,15 +35,13 @@ public class Cell {
 
     public int getY() {return y;}
 
-    public int getId() {
-        return id;
-    }
 
-    public Boolean gethasDiamond() {
+
+    public Boolean getHasDiamond() {
         return hasDiamond;
     }
 
-    public Boolean getisEmpty() {
+    public Boolean getIsEmpty() {
         return isEmpty;
     }
 
@@ -66,15 +61,12 @@ public class Cell {
         this.y = y;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    public void sethasDiamond(Boolean hasDiamond) {
+    public void setHasDiamond(Boolean hasDiamond) {
         this.hasDiamond = hasDiamond;
     }
 
-    public void setisEmpty(Boolean isEmpty) {
+    public void setHsEmpty(Boolean isEmpty) {
         this.isEmpty = isEmpty;
     }
 
