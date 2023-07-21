@@ -2,9 +2,10 @@ import java.awt.*;
 import java.util.LinkedList;
 
 public class World {
-    private int level;
-    private LinkedList<Cell> cells = new LinkedList<>();
-    private LinkedList<Block> blocks = new LinkedList<Block>();
+    private LevelHelper level = new LevelHelper();
+
+    private LinkedList<Cell> cells = new LinkedList<>(); // should be from datasource
+    private LinkedList<Block> blocks = new LinkedList<Block>(); // should be from datasource
 
     public void draw(Graphics g){
         for(Cell cell : cells){
@@ -13,7 +14,7 @@ public class World {
     }
 
     public void run(){
-        for(Block block : Blocks){
+        for(Block block : blocks){
             block.run();
         }
     }

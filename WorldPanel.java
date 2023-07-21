@@ -2,11 +2,12 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
-public class WorldPanel extends JPanel implements ActionListener{
+public class WorldPanel extends JPanel implements ActionListener {
     private int x1, x2, y1, y2;
     World world = new World();
+
     //ConnectHelper connectHelper = new ConnectHelper();
-    public WorldPanel(){
+    public WorldPanel() {
         this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(Color.WHITE);
 
@@ -42,13 +43,19 @@ public class WorldPanel extends JPanel implements ActionListener{
         this.add(black);
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         // loop through struct that holds cells, spider, diamonds
         world.draw(g);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
+            if (((JButton) e.getSource()).getText().equals("Run")) {
+                System.out.println("selected run");
+                world.run();
+            }
+        }
     }
+
 }
