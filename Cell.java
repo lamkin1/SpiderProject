@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Cell {
     private int id;
-    Spider spider
+    Spider spider;
     private Boolean hasDiamond, hasSpider, isEmpty;
     private Color color = Color.black; // default is black
 
