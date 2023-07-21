@@ -1,11 +1,12 @@
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class World {
     private LevelHelper level = new LevelHelper();
-
-    private LinkedList<Cell> cells = new LinkedList<>(); // should be from datasource
-    private LinkedList<Block> blocks = new LinkedList<Block>(); // should be from datasource
+    private DataSource dataSource;
+    private ArrayList<Cell> cells = dataSource.getCellArrayInstance();
+    private ArrayList<Block> blocks = dataSource.getBlockArrayInstance();
 
     public void draw(Graphics g){
         for(Cell cell : cells){
