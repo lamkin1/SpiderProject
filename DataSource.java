@@ -35,6 +35,8 @@ public class DataSource extends Observable {
 
     public void setLevel(int level){
         this.level = level;
+        setChanged();
+        notifyObservers();
     }
 
     public int[] getSpiderLocation(){
