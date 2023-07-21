@@ -80,7 +80,8 @@ public class Spider {
         }
     }
 
-    public void paintCell(){
+    public String getCell(){
         //spider sets cell's color
+        return this.color;
     }
 }
