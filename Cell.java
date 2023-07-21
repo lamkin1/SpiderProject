@@ -35,8 +35,6 @@ public class Cell {
 
     public int getY() {return y;}
 
-
-
     public Boolean getHasDiamond() {
         return hasDiamond;
     }
@@ -60,7 +58,6 @@ public class Cell {
     public void setY(int y) {
         this.y = y;
     }
-
 
     public void setHasDiamond(Boolean hasDiamond) {
         this.hasDiamond = hasDiamond;

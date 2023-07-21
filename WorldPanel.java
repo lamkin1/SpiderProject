@@ -1,46 +1,27 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeEvent;
 import java.awt.*;
 import java.awt.event.*;
 public class WorldPanel extends JPanel implements ActionListener {
-    private int x1, x2, y1, y2;
     World world = new World();
+    JSlider speedSlider;
 
     //ConnectHelper connectHelper = new ConnectHelper();
     public WorldPanel() {
         this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(Color.WHITE);
 
-        JButton step = new JButton("Step");
-        JButton turn = new JButton("Turn");
-        JButton red = new JButton("Red");
-        JButton blue = new JButton("Blue");
-        JButton green = new JButton("Green");
-        JButton black = new JButton("Black");
+        JButton play = new JButton("Play");
+        JButton reset = new JButton("Reset");
+        speedSlider = new JSlider();
 
-        red.setOpaque(true);
-        blue.setOpaque(true);
-        green.setOpaque(true);
-        black.setOpaque(true);
+        play.addActionListener(this);
+        reset.addActionListener(this);
 
-        red.setBackground(Color.RED);
-        blue.setBackground(Color.BLUE);
-        green.setBackground(Color.GREEN);
-        black.setBackground(Color.BLACK);
-
-        step.addActionListener(this);
-        turn.addActionListener(this);
-        red.addActionListener(this);
-        blue.addActionListener(this);
-        green.addActionListener(this);
-        black.addActionListener(this);
-
-        this.add(step);
-        this.add(turn);
-        this.add(red);
-        this.add(blue);
-        this.add(green);
-        this.add(black);
+        this.add(play);
+        this.add(reset);
+        this.add(speedSlider);
     }
 
     public void paintComponent(Graphics g) {
@@ -48,11 +29,16 @@ public class WorldPanel extends JPanel implements ActionListener {
         world.draw(g);
     }
 
+    public void stateChanged(ChangeEvent e)
+    {
+        System.out.println(speedSlider.getValue());
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
-            if (((JButton) e.getSource()).getText().equals("Run")) {
-                System.out.println("selected run");
+            if (((JButton) e.getSource()).getText().equals("Play")) {
+                System.out.println("selected play");
                 world.run();
             }
         }
