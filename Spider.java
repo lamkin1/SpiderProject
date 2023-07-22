@@ -51,37 +51,49 @@ public class Spider {
         switch(this.direction){
             case "up":
                 g.fillOval(this.x, this.y, 15, 20);
-                //still need to draw legs
+                for (int i = 0; i < 4; i++) {
+                    g.drawLine(this.x+2+i*3, this.y+10, this.x+2+i*3, this.y+30);
+                    g.drawLine(this.x+15-2-i*3, this.y+10, this.x+15-2-i*3, this.y+30);
+                }
                 g.setColor(Color.WHITE);
-                g.fillOval(this.x-2, this.y+10, 2, 2);
-                g.fillOval(this.x+2, this.y+10, 2, 2);
+                g.fillOval(this.x+3, this.y+7, 2, 2);
+                g.fillOval(this.x+9, this.y+7, 2, 2);
                 break;
             case "down":
                 g.fillOval(this.x, this.y, 15, 20);
-
+                for (int i = 0; i < 4; i++) {
+                    g.drawLine(this.x+2+i*3, this.y+10, this.x+2+i*3, this.y-10);
+                    g.drawLine(this.x+15-2-i*3, this.y+10, this.x+15-2-i*3, this.y-10);
+                }
                 g.setColor(Color.WHITE);
-                g.fillOval(this.x-2, this.y-10, 2, 2);
-                g.fillOval(this.x+2, this.y-10, 2, 2);
+                g.fillOval(this.x+3, this.y+12, 2, 2);
+                g.fillOval(this.x+9, this.y+12, 2, 2);
                 break;
             case "left":
                 g.fillOval(this.x, this.y, 20, 15);
-
+                for (int i = 0; i < 4; i++) {
+                    g.drawLine(this.x+10, this.y+2+i*3, this.x+30, this.y+2+i*3);
+                    g.drawLine(this.x+10, this.y+15-2-i*3, this.x+30, this.y+15-2-i*3);
+                }
                 g.setColor(Color.WHITE);
-                g.fillOval(this.x-10, this.y+2, 2, 2);
-                g.fillOval(this.x-10, this.y-2, 2, 2);
+                g.fillOval(this.x+7, this.y+3, 2, 2);
+                g.fillOval(this.x+7, this.y+9, 2, 2);
                 break;
             case "right":
                 g.fillOval(this.x, this.y, 20, 15);
-
+                for (int i = 0; i < 4; i++) {
+                    g.drawLine(this.x+10, this.y+2+i*3, this.x-10, this.y+2+i*3);
+                    g.drawLine(this.x+10, this.y+15-2-i*3, this.x-10, this.y+15-2-i*3);
+                }
                 g.setColor(Color.WHITE);
-                g.fillOval(this.x+10, this.y+2, 2, 2);
-                g.fillOval(this.x+10, y-2, 2, 2);
+                g.fillOval(this.x+12, this.y+3, 2, 2);
+                g.fillOval(this.x+12, this.y+9, 2, 2);
                 break;
         }
     }
 
+
     public String getCell(){
-        //spider sets cell's color
         return this.color;
     }
 }

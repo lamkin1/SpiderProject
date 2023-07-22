@@ -19,7 +19,8 @@ public class World {
         }
     }
 
+    /*
     public boolean compare(){
         // compare elements from datasource data structures
-    }
+    }*/
 }
