@@ -36,8 +36,11 @@ public class ActionBlock extends Block{
     public void connect(){
         int x_avg = super.getX1()+super.getX2()/2;
         Block temp, temp2, transfer;
+        boolean hit = false;
+        boolean first = false;
         for(int i = 0; i < super.blocks.size(); i++){
             temp = super.blocks.get(i);
+            if(this == temp){first = true;}
             do{
                 if((this.getY1() >= temp.getY2() - 2 && super.getY1() <= temp.getY2() + 2) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
                     this.setY1(temp.getY2());
@@ -52,10 +55,18 @@ public class ActionBlock extends Block{
                         temp2.shift(y_len);
                         temp2 = temp2.next;
                     }while(temp2 != null);
+                    return;
                 }
                 temp = temp.next;
             }while(temp != null);
         }
+        //SORT blocks array by y value
+        if(!first){
+            //need to remove the linked list from where it was dragged from
+            blocks.add(this);
+        }
+
+
     }
 
 

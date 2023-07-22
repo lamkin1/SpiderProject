@@ -9,6 +9,7 @@ public abstract class Block{
     Block next = null;
     private int x1, y1, x2, y2;
     ArrayList<Block> blocks;
+
     public abstract void draw(Graphics g);
 
     public void moving(int x_diff, int y_diff){
