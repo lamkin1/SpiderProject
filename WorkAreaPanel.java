@@ -37,7 +37,9 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     public void mouseClicked(MouseEvent e) {}
 
     @Override
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+        // call connect
+    }
 
     @Override
     public void mouseEntered(MouseEvent e) {}
