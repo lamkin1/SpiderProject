@@ -15,7 +15,8 @@ public class Cell {
     public void draw(Graphics g){
         // maybe better to draw in world and get info from data source
         g.setColor(this.color);
-        g.fillRect(x, y, 25, 25);
+        g.drawRect(x, y, 25, 25);
+        //g.fillRect(x, y, 25, 25);
 
     }
 
