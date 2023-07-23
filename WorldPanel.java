@@ -27,6 +27,7 @@ public class WorldPanel extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         // loop through struct that holds cells, spider, diamonds
         world.draw(g);
+        repaint();
     }
 
     public void stateChanged(ChangeEvent e)
