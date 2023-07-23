@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class World {
     private LevelHelper level = new LevelHelper();
-    private DataSource dataSource;
+    private DataSource dataSource = DataSource.getInstance();
     private ArrayList<Cell> cells = dataSource.getCellArrayInstance();
     private ArrayList<Block> blocks = dataSource.getBlockArrayInstance();
 
