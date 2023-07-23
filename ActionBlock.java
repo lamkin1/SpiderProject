@@ -3,7 +3,7 @@ import javax.xml.crypto.Data;
 import java.awt.*;
 
 public class ActionBlock extends Block{
-    private int x_len = 10, y_len = 5;
+    private int x_len = 30, y_len = 15;
     private String name;
     private Color color;
 
@@ -30,7 +30,7 @@ public class ActionBlock extends Block{
 
     public void draw(Graphics g){
         g.setColor(color);
-        g.fillRect(super.getX1(), super.getY1(), super.getX2(), super.getY2());
+        g.fillRect(super.getX1(), super.getY1(), x_len, y_len);
     }
 
     public void connect(){
