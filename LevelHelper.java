@@ -50,18 +50,21 @@ public class LevelHelper {
     }
 
     private void fillDataSource(){
-        int x = 0;
-        int y = 0;
+        int x_default = 200;
+        x_default -= size*13;
+        int x = x_default;
+        int y = 200;
+        y -= size*13;
         ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
-        int x_length = 25;
-        int y_length = 25;
+        int x_length = 35;
+        int y_length = 35;
         for(int i = 0; i < size; i++){
             for(int j = 0; j< size; j++){
                 Cell c = new Cell(x, y);
                 cells.add(c);
                 x += x_length;
             }
-            x = 0;
+            x = x_default;
             y += y_length;
         }
     }
