@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class LevelHelper {
     private int level;
     private int size;
+    private int spiderSpawn;
     private List<Integer> diamondCellList;
     private List<String> diamondColorList;
     public LevelHelper(){
@@ -20,7 +21,7 @@ public class LevelHelper {
     //Line 1: n for nxn size
     //Line 2: List of cells that diamonds will be in
     //line 3: List of colors for the diamonds in the previous line
-    //
+    //Line 4: Spider spawn cell
 
     public void load(int level){
         this.level = level;
@@ -38,6 +39,7 @@ public class LevelHelper {
                 diamondColorList.add(input.split(",")[i]);
             }
             System.out.println(diamondColorList);
+            spiderSpawn = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
             System.err.println("Error reading file " + fileName + ": " + e.getMessage());
         }
