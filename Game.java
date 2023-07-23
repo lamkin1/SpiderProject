@@ -40,9 +40,5 @@ public class Game extends JFrame{
         Game.setSize(1000,600);
         Game.setVisible(true);
         Game.setResizable(false);
-
-
     }
-
-
 }

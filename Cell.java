@@ -16,6 +16,8 @@ public class Cell {
         // maybe better to draw in world and get info from data source
         g.setColor(this.color);
         g.fillRect(x, y, 25, 25);
+        g.setColor(Color.WHITE);
+        g.drawRect(x, y, 25, 25);
 
     }
 
