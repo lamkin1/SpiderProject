@@ -4,10 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 public class Game extends JFrame{
     WorldPanel worldPanel;
+    private LevelHelper lh = new LevelHelper();
 
     public Game(){
         super("Spider World");
         Border blackline = BorderFactory.createLineBorder(Color.black);
+        lh.load(1);
+
 
         JPanel mainPanel = new JPanel(new BorderLayout());
         setLayout(new BorderLayout());

@@ -7,14 +7,9 @@ public class Cell {
     private Boolean hasDiamond, hasSpider, isEmpty;
     private Color color = Color.black;
 
-    public Cell(int x, int y, Boolean hasDiamond, Boolean hasSpider, Boolean isEmpty, Color diamondColor){
+    public Cell(int x, int y){
         this.x = x;
         this.y = y;
-        this.hasDiamond = hasDiamond;
-        this.hasSpider = hasSpider;
-        this.isEmpty = isEmpty;
-        spider = new Spider(x, y, "up");
-        d = new Diamond(diamondColor, x, y);
     }
 
     // 25 by 25 for block
