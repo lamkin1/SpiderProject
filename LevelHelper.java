@@ -27,8 +27,6 @@ public class LevelHelper {
 
         String fileName = "Level_" + level + ".txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            int lineNumber = 1;
             size = Integer.parseInt(reader.readLine());
             String input = reader.readLine();
             for (int i = 0; i < input.split(",").length; i++){
@@ -43,6 +41,7 @@ public class LevelHelper {
         } catch (IOException e) {
             System.err.println("Error reading file " + fileName + ": " + e.getMessage());
         }
+        fillDataSource();
 
     }
 
@@ -50,5 +49,20 @@ public class LevelHelper {
         return level;
     }
 
-    //
+    private void fillDataSource(){
+        int x = 0;
+        int y = 0;
+        ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
+        int x_length = 25;
+        int y_length = 25;
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j< size; j++){
+                Cell c = new Cell(x, y);
+                cells.add(c);
+                x += x_length;
+            }
+            x = 0;
+            y += y_length;
+        }
+    }
 }

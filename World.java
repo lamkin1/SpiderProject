@@ -8,7 +8,6 @@ public class World {
     private ArrayList<Block> blocks = dataSource.getBlockArrayInstance();
 
     public void draw(Graphics g){
-
         for(Cell cell : cells){
             cell.draw(g);
         }
