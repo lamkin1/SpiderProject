@@ -27,6 +27,7 @@ public class Spider {
                 this.x += 1;
                 break;
         }
+        DataSource.getInstance().setSpiderLocation(this.x, this.y);
     }
 
     public void setDirection(String d){
