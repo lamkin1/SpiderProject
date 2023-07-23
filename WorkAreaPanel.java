@@ -4,15 +4,18 @@ import java.awt.*;
 import java.awt.event.*;
 public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionListener{
     private int x1, x2, y1, y2;
+    private BlockSpawner bs;
     //private Block chosenBlock;
     //ConnectHelper connectHelper = new ConnectHelper();
     public WorkAreaPanel(){
         this.setPreferredSize(new Dimension(500, 500));
         this.setBackground(Color.WHITE);
+        bs = new BlockSpawner(450, 100, Color.ORANGE, "Block");
+        this.add(bs);
     }
 
     public void paintComponent(Graphics g){
-
+        bs.draw(g);
     }
 
 //    public void delete(ParentBlock parentBlock){
