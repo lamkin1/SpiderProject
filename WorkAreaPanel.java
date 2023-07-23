@@ -2,19 +2,27 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
-public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionListener{
+import java.util.ArrayList;
+public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionListener, ActionListener {
     private int x1, x2, y1, y2;
     private BlockSpawner bs;
+    DataSource dataSource;
+    ArrayList<Block> blocks;
+
     //private Block chosenBlock;
     //ConnectHelper connectHelper = new ConnectHelper();
-    public WorkAreaPanel(){
+    public WorkAreaPanel() {
         this.setPreferredSize(new Dimension(500, 500));
+        dataSource = DataSource.getInstance();
+        blocks = dataSource.getBlockArrayInstance();
+
         this.setBackground(Color.WHITE);
         bs = new BlockSpawner(450, 100, Color.ORANGE, "Block");
         this.add(bs);
+        bs.addActionListener(this);
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) {
         bs.draw(g);
     }
 
@@ -37,7 +45,8 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+    }
 
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -45,11 +54,24 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {
+    }
 
     @Override
-    public void mouseExited(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {
+    }
 
     @Override
-    public void mouseMoved(MouseEvent e) {}
+    public void mouseMoved(MouseEvent e) {
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource().getClass().getName().equals("BlockSpawner")) {
+            if (((JButton) e.getSource()).getText().equals("Block")) {
+                ActionBlock ab = new ActionBlock(100, 100, "Step");
+                blocks.add(ab);
+                repaint();
+            }
+        }
+    }
 }
