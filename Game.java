@@ -3,6 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 public class Game extends JFrame{
+    WorldPanel worldPanel;
 
     public Game(){
         super("Spider World");
@@ -11,7 +12,7 @@ public class Game extends JFrame{
         JPanel mainPanel = new JPanel(new BorderLayout());
         setLayout(new BorderLayout());
 
-        WorldPanel worldPanel = new WorldPanel();
+        worldPanel = new WorldPanel();
         WorkAreaPanel workAreaPanel = new WorkAreaPanel();
 
         JPanel levels = new JPanel();
@@ -27,6 +28,7 @@ public class Game extends JFrame{
         mainPanel.add(workAreaPanel,BorderLayout.EAST);
 
         add(mainPanel);
+
     }
 
     public static void main(String[] args) {
@@ -35,6 +37,8 @@ public class Game extends JFrame{
         Game.setSize(1000,600);
         Game.setVisible(true);
         Game.setResizable(false);
+
+
     }
 
 

@@ -19,6 +19,7 @@ public class Cell {
 
     // 25 by 25 for block
     public void draw(Graphics g){
+        // maybe better to draw in world and get info from data source
         g.setColor(this.color);
         g.drawRect(x, y, 25, 25);
 
