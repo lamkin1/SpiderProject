@@ -83,7 +83,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void mouseMoved(MouseEvent e) {
+    public void mouseMoved(MouseEvent e) {//
     }
 
     public void actionPerformed(ActionEvent e) {

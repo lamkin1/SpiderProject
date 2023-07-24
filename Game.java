@@ -26,7 +26,7 @@ public class Game extends JFrame{
         JButton level2 = new JButton("2");
         levels.add(level2);
 
-        JButton level3 = new JButton("3");
+        JButton level3 = new JButton("3");//
         levels.add(level3);
 
         JButton level4 = new JButton("4");

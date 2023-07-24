@@ -9,7 +9,7 @@ public class WorldPanel extends JPanel implements ActionListener {
 
     //ConnectHelper connectHelper = new ConnectHelper();
     public WorldPanel() {
-        this.setPreferredSize(new Dimension(500, 500));
+        this.setPreferredSize(new Dimension(500, 500));//
         this.setBackground(Color.WHITE);
 
         JButton play = new JButton("Play");
