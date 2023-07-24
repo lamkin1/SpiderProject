@@ -91,7 +91,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             if (((JButton) e.getSource()).getText().equals("Step")) {
                 ActionBlock ab = new ActionBlock(300, 50, "Step");
                 blocks.add(ab);
-                repaint();
+                repaint();//
             }
 
             if (((JButton) e.getSource()).getText().equals("Turn")) {
