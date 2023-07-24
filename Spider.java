@@ -15,40 +15,40 @@ public class Spider {
     public void move(){
         switch(this.direction){
             case "up":
-                this.y += 1;
+                this.y += 10;
                 break;
             case "down":
-                this.y -= 1;
+                this.y -= 10;
                 break;
             case "left":
-                this.x -= 1;
+                this.x -= 10;
                 break;
             case "right":
-                this.x += 1;
+                this.x += 10;
                 break;
         }
         DataSource.getInstance().setSpiderLocation(this.x, this.y);
     }
 
-    public void setDirection(String d){
-        switch(d){
+    public void turn(){
+        switch(this.direction){
             case "up":
-                this.direction = "up";
+                this.direction = "right";
                 break;
             case "down":
-                this.direction = "down";
-                break;
-            case "left":
                 this.direction = "left";
                 break;
+            case "left":
+                this.direction = "up";
+                break;
             case "right":
-                this.direction = "right";
+                this.direction = "down";
                 break;
         }
     }
 
     public void draw(Graphics g){
-        g.setColor(Color.BLACK);
+        g.setColor(Color.GRAY);
         switch(this.direction){
             case "up":
                 g.fillOval(this.x, this.y, 15, 20);
