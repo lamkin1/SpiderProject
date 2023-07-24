@@ -22,6 +22,18 @@ public class Game extends JFrame{
         JButton level1 = new JButton("1");
         levels.add(level1);
 
+        JButton level2 = new JButton("2");
+        levels.add(level2);
+
+        JButton level3 = new JButton("3");
+        levels.add(level3);
+
+        JButton level4 = new JButton("4");
+        levels.add(level4);
+
+        JButton level5 = new JButton("5");
+        levels.add(level5);
+
         workAreaPanel.setBorder(blackline);
         worldPanel.setBorder(blackline);
         levels.setBorder(blackline);
@@ -31,7 +43,6 @@ public class Game extends JFrame{
         mainPanel.add(workAreaPanel,BorderLayout.EAST);
 
         add(mainPanel);
-
     }
 
     public static void main(String[] args) {
