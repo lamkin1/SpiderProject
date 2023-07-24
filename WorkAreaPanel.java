@@ -5,7 +5,11 @@ import java.awt.event.*;
 import java.util.ArrayList;
 public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionListener, ActionListener {
     private int x1, x2, y1, y2;
-    private BlockSpawner bs;
+    private BlockSpawner step;
+    private BlockSpawner paint;
+    private BlockSpawner turn;
+
+    JPanel buttonPanel = new JPanel();
     DataSource dataSource;
     ArrayList<Block> blocks;
 
@@ -13,17 +17,31 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     //ConnectHelper connectHelper = new ConnectHelper();
     public WorkAreaPanel() {
         this.setPreferredSize(new Dimension(500, 500));
+        setLayout(new BorderLayout());
+
         dataSource = DataSource.getInstance();
         blocks = dataSource.getBlockArrayInstance();
 
         this.setBackground(Color.WHITE);
-        bs = new BlockSpawner(450, 100, Color.ORANGE, "Block");
-        this.add(bs);
-        bs.addActionListener(this);
+        step = new BlockSpawner(450, 100, Color.ORANGE, "Step");
+        turn = new BlockSpawner(450, 100, Color.ORANGE, "Turn");
+        paint = new BlockSpawner(450, 100, Color.ORANGE, "Paint");
+
+
+        buttonPanel.add(step);
+        buttonPanel.add(turn);
+        buttonPanel.add(paint);
+
+        step.addActionListener(this);
+        paint.addActionListener(this);
+        turn.addActionListener(this);
+
+        buttonPanel.setLayout(new GridLayout(6, 1));
+
+        this.add(buttonPanel, BorderLayout.EAST);
     }
 
     public void paintComponent(Graphics g) {
-        bs.draw(g);
         for(Block block: blocks){
             block.draw(g);
         }
@@ -70,8 +88,20 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().getClass().getName().equals("BlockSpawner")) {
-            if (((JButton) e.getSource()).getText().equals("Block")) {
-                ActionBlock ab = new ActionBlock(100, 100, "Step");
+            if (((JButton) e.getSource()).getText().equals("Step")) {
+                ActionBlock ab = new ActionBlock(300, 50, "Step");
+                blocks.add(ab);
+                repaint();
+            }
+
+            if (((JButton) e.getSource()).getText().equals("Turn")) {
+                ActionBlock ab = new ActionBlock(300, 100, "Turn");
+                blocks.add(ab);
+                repaint();
+            }
+
+            if (((JButton) e.getSource()).getText().equals("Paint")) {
+                ActionBlock ab = new ActionBlock(300, 150, "Paint");
                 blocks.add(ab);
                 repaint();
             }

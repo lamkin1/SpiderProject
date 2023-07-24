@@ -8,7 +8,6 @@ public class Cell {
     public Cell(int x, int y){
         this.x = x;
         this.y = y;
-
     }
 
     // 25 by 25 for block
@@ -18,15 +17,11 @@ public class Cell {
         g.fillRect(x, y, 35, 35);
         g.setColor(Color.WHITE);
         g.drawRect(x, y, 35, 35);
-
-
     }
 
     public int getX() {return x;}
 
     public int getY() {return y;}
-
-
 
     public Color getColor() {
         return color;
@@ -39,7 +34,6 @@ public class Cell {
     public void setY(int y) {
         this.y = y;
     }
-
 
     public void setColor(Color color) {
         this.color = color;

@@ -17,7 +17,7 @@ public class WorldPanel extends JPanel implements ActionListener {
         speedSlider = new JSlider();
 
         play.addActionListener(this);
-        reset.addActionListener(this);
+        reset.addActionListener(this); // e->world.reset()??
 
         this.add(play);
         this.add(reset);
@@ -41,6 +41,9 @@ public class WorldPanel extends JPanel implements ActionListener {
             if (((JButton) e.getSource()).getText().equals("Play")) {
                 System.out.println("selected play");
                 world.run();
+            }
+            if (((JButton) e.getSource()).getText().equals("Reset")) {
+                System.out.println("selected reset");
             }
         }
     }

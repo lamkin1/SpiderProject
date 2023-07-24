@@ -9,10 +9,11 @@ public class Game extends JFrame{
     public Game(){
         super("Spider World");
         Border blackline = BorderFactory.createLineBorder(Color.black);
+
         lh.load(1);
 
-
         JPanel mainPanel = new JPanel(new BorderLayout());
+
         setLayout(new BorderLayout());
 
         worldPanel = new WorldPanel();
