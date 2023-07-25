@@ -1,0 +1,4 @@
+7
+6,7,12,13,18,19,24,25,30,31,36,37,43
+red,blue,red,blue,red,blue,red,blue,red,blue,red,blue,blue
+1
