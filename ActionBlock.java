@@ -20,8 +20,14 @@ public class ActionBlock extends Block{
             case "Turn":    name = "Turn";
                             color = Color.GRAY;
                             break;
-            case "Paint":   name = "Paint";
-                            color = Color.ORANGE;
+            case "Paint Red":   name = "Paint Red";
+                            color = Color.RED;
+                            break;
+            case "Paint Blue":   name = "Paint Blue";
+                            color = Color.BLUE;
+                            break;
+            case "Paint Green":   name = "Paint Green";
+                            color = Color.GREEN;
                             break;
         }
     }
