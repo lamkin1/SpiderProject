@@ -1,0 +1,4 @@
+5
+6,11,16,21,22,23,24,25
+red,red,red,red,red,red,red,red
+1

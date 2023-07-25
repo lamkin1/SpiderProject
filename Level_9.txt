@@ -1,0 +1,4 @@
+6
+6,11,16,21,26,31
+red,blue,blue,blue,blue,red
+1
