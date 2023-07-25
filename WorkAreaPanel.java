@@ -11,6 +11,8 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     private BlockSpawner paintGreen;
     private BlockSpawner turn;
 
+    private TrashCan trashCan = new TrashCan();
+
     int offsetX, offsetY;
 
     private ActionBlock selectedActionBlock;
@@ -67,11 +69,12 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             System.out.println("drawing");
             block.draw(g);
         }
+        trashCan.draw(g);
     }
 
-//    public void delete(ParentBlock parentBlock){
-//
-//    }
+    public void delete(Block block){
+        blocks.remove(block);
+    }
 
 
     @Override
@@ -96,15 +99,15 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         x2 = e.getX();
         y2 = e.getY();
 
-        System.out.println("here in dragged");
-
         int x_diff = x2 - offsetX;
         int y_diff = y2 - offsetY;
 
+        if (x_diff > 0 && x_diff + 15 < 50 && y_diff + 15 > 450){
+            delete(selectedActionBlock);
+        }
+
         selectedActionBlock.setX1(x_diff);
         selectedActionBlock.setY1(y_diff);
-
-        //selectedActionBlock.moving(x_diff, y_diff);
 
         repaint();
     }
