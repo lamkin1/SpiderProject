@@ -11,7 +11,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     private BlockSpawner paintGreen;
     private BlockSpawner turn;
 
-    private TrashCan trashCan = new TrashCan();
+    private TrashCan trashCan;
 
     int offsetX, offsetY;
 
@@ -61,6 +61,8 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         buttonPanel.setLayout(new GridLayout(6, 1));
 
         this.add(buttonPanel, BorderLayout.EAST);
+
+        trashCan = new TrashCan(40, 450);
 
     }
 
