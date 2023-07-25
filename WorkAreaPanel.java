@@ -65,6 +65,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     }
 
     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         for(Block block: blocks){
             System.out.println("drawing");
             block.draw(g);
