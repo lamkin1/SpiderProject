@@ -4,7 +4,6 @@ public class Spider {
     private int x;
     private int y;
     private String direction;
-    private String color;
 
     public Spider(int x, int y, String direction){
         this.x = x;
@@ -91,10 +90,5 @@ public class Spider {
                 g.fillOval(this.x+12, this.y+9, 2, 2);
                 break;
         }
-    }
-
-
-    public String getCell(){
-        return this.color;
     }
 }

@@ -19,7 +19,7 @@ public class LevelHelper {
 
     //Level Format:
     //Line 1: n for nxn size
-    //Line 2: List of cells that diamonds will be in
+    //Line 2: List of cells that diamonds will be in, currently indexing starting at 1, going left to right, up to down
     //line 3: List of colors for the diamonds in the previous line
     //Line 4: Spider spawn cell
 
