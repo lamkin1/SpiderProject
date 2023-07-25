@@ -21,7 +21,7 @@ public abstract class Block{
 
 
     public void shift(int y_diff){
-        moving(0, y_diff);
+        moving(this.getX1(), this.getY2());
     }
 
 

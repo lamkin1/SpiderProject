@@ -45,28 +45,31 @@ public class ActionBlock extends Block{
         boolean first = false;
         for(int i = 0; i < super.blocks.size(); i++){
             temp = super.blocks.get(i);
-            if(this == temp){first = true;}
+            if(this == temp){first = true;continue;}
             do{
-                System.out.println("this y1: " + this.getY1());
-                System.out.println("temp y2: " + temp.getY2());
-                System.out.println("x avg: " + x_avg);
-                System.out.println("temp x1: " + temp.getX1());
-                System.out.println("temp x2: " + temp.getX2());
+                //System.out.println("this y1: " + this.getY1());
+                //System.out.println("temp y2: " + temp.getY2());
+                //System.out.println("x avg: " + x_avg);
+                //System.out.println("temp x1: " + temp.getX1());
+                //System.out.println("temp x2: " + temp.getX2());
                 if((this.getY1() >= temp.getY2() - 5 && super.getY1() <= temp.getY2() + 5) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
-                    System.out.println("hit");
+                    //System.out.println("hit");
                     this.setY1(temp.getY2());
                     this.setX1(temp.getX1());
                     this.setX2(temp.getX2());
                     this.setY2(this.getY1()+y_len);
-                    transfer = temp.next;
-                    temp.next = this;
-                    this.next = transfer;
-                    temp2 = transfer;
-                    do{
-                        if(temp2 != null){
-                            temp2.shift(y_len);
-                            temp2 = temp2.next;}
-                    }while(temp2 != null);
+                    if(temp.next != this) {
+                        transfer = temp.next;
+                        temp.next = this;
+                        this.next = transfer;
+                        temp2 = transfer;
+                        do {
+                            if (temp2 != null) {
+                                temp2.shift(y_len);
+                                temp2 = temp2.next;
+                            }
+                        } while (temp2 != null);
+                    }
                     return;
                 }
                 temp = temp.next;
@@ -75,7 +78,8 @@ public class ActionBlock extends Block{
         //SORT blocks array by y value
         if(!first){
             //need to remove the linked list from where it was dragged from
-            blocks.add(this);
+            //blocks.add(this); ??? what was I thinking here
+
         }
 
 
