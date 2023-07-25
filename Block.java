@@ -13,10 +13,10 @@ public abstract class Block{
     public abstract void draw(Graphics g);
 
     public void moving(int x_diff, int y_diff){
-        x1 = x1 + x_diff;
-        x2 = x2 + x_diff;
-        y1 = y1 + y_diff;
-        y2 = y2 + y_diff;
+        setX1(x_diff);
+        setX2(x_diff + 30);
+        setY1(y_diff);
+        setY2(y_diff + 15);
     }
 
 

@@ -40,15 +40,20 @@ public class ActionBlock extends Block{
     }
 
     public void connect(){
-        int x_avg = super.getX1()+super.getX2()/2;
+        int x_avg = (super.getX1()+super.getX2())/2;
         Block temp, temp2, transfer;
-        boolean hit = false;
         boolean first = false;
         for(int i = 0; i < super.blocks.size(); i++){
             temp = super.blocks.get(i);
             if(this == temp){first = true;}
             do{
-                if((this.getY1() >= temp.getY2() - 2 && super.getY1() <= temp.getY2() + 2) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
+                System.out.println("this y1: " + this.getY1());
+                System.out.println("temp y2: " + temp.getY2());
+                System.out.println("x avg: " + x_avg);
+                System.out.println("temp x1: " + temp.getX1());
+                System.out.println("temp x2: " + temp.getX2());
+                if((this.getY1() >= temp.getY2() - 5 && super.getY1() <= temp.getY2() + 5) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
+                    System.out.println("hit");
                     this.setY1(temp.getY2());
                     this.setX1(temp.getX1());
                     this.setX2(temp.getX2());
@@ -58,8 +63,9 @@ public class ActionBlock extends Block{
                     this.next = transfer;
                     temp2 = transfer;
                     do{
-                        temp2.shift(y_len);
-                        temp2 = temp2.next;
+                        if(temp2 != null){
+                            temp2.shift(y_len);
+                            temp2 = temp2.next;}
                     }while(temp2 != null);
                     return;
                 }
