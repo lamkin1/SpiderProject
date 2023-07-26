@@ -17,12 +17,6 @@ public class World {
         }
     }
 
-    public void run(){
-        for(Block block : blocks){
-            block.run();
-        }
-    }
-
     public boolean compare(){
         //have to change this
         String filePath = "C:\\Users\\miona\\Desktop\\testing for spider\\src\\Level_2.txt";

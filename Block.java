@@ -1,6 +1,4 @@
 import java.awt.*;
-import javax.swing.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -24,8 +22,6 @@ public abstract class Block{
         moving(this.getX1(), this.getY2());
     }
 
-
-    public abstract void run();
 
     public int getX1() {
         return x1;
