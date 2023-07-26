@@ -99,11 +99,14 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         int y_diff = y2 - offsetY;
 
         if (selectedActionBlock != null){
-            if (x_diff > 40 && x_diff + 15 < 80 && y_diff + 15 > 435 && y_diff < 495){
+            int blockLength = selectedActionBlock.getX_len();
+            int blockHeight = selectedActionBlock.getY_len();
+            if (x_diff > 40 && x_diff + blockLength < 80 && y_diff > 435 && y_diff + blockHeight < 495){
                 trashCan.delete(selectedActionBlock);
             }
 
             selectedActionBlock.moving(x_diff, y_diff);
+
             Block temp = selectedActionBlock.next;
             int shift_y = selectedActionBlock.getY_len();
             while(temp != null){
