@@ -25,7 +25,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     public WorkAreaPanel() {
         addMouseListener(this);
         addMouseMotionListener(this);
-        this.setPreferredSize(new Dimension(750, 500));
+        this.setPreferredSize(new Dimension(700, 500));
         setLayout(new BorderLayout());
 
         blocks = DataSource.getInstance().getBlockArrayInstance();
@@ -101,7 +101,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         if (selectedActionBlock != null){
             int blockLength = selectedActionBlock.getX_len();
             int blockHeight = selectedActionBlock.getY_len();
-            if (x_diff > 40 && x_diff + blockLength < 80 && y_diff > 435 && y_diff + blockHeight < 495){
+            if (x_diff > 100 && x_diff + blockLength < 80 && y_diff > 435 && y_diff + blockHeight < 495){
                 trashCan.delete(selectedActionBlock);
             }
 
