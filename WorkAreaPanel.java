@@ -148,35 +148,35 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         if (e.getSource().getClass().getName().equals("BlockSpawner")) {
             if (((JButton) e.getSource()).getText().equals("Step")) {
                 System.out.println("making step block");
-                ActionBlock ab = new ActionBlock(300, 50, "Step");
+                ActionBlock ab = new ActionBlock(375, 50, "Step");
                 blocks.add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Turn")) {
                 System.out.println("making turn block");
-                ActionBlock ab = new ActionBlock(300, 100, "Turn");
+                ActionBlock ab = new ActionBlock(375, 125, "Turn");
                 blocks.add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Red")) {
                 System.out.println("making paint block");
-                ActionBlock ab = new ActionBlock(300, 150, "Paint Red");
+                ActionBlock ab = new ActionBlock(375, 200, "Paint Red");
                 blocks.add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Blue")) {
                 System.out.println("making paint block");
-                ActionBlock ab = new ActionBlock(300, 150, "Paint Blue");
+                ActionBlock ab = new ActionBlock(375, 275, "Paint Blue");
                 blocks.add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Green")) {
                 System.out.println("making paint block");
-                ActionBlock ab = new ActionBlock(300, 150, "Paint Green");
+                ActionBlock ab = new ActionBlock(375, 350, "Paint Green");
                 blocks.add(ab);
                 repaint();
             }

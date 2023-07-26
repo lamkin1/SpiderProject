@@ -48,10 +48,18 @@ public class Game extends JFrame implements ActionListener{
         level5.addActionListener(this);
         levels.add(level5);
 
+        JButton level6 = new JButton("6");
+        level6.addActionListener(this);
+        levels.add(level6);
+
 
         JButton level7 = new JButton("7");
         level7.addActionListener(this);
         levels.add(level7);
+
+        JButton level8 = new JButton("8");
+        level8.addActionListener(this);
+        levels.add(level8);
 
         JButton level9 = new JButton("9");
         level9.addActionListener(this);
@@ -98,14 +106,41 @@ public class Game extends JFrame implements ActionListener{
         mainPanel.add(workAreaPanel,BorderLayout.EAST);
 
         add(mainPanel);
+
+        Timer timer = new Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showPopup("Welcome to Spider World! Use the blocks to move your spider to correctly color the grid based on the diamonds.");
+            }
+        });
+        timer.setRepeats(false); // Set to false to execute the action only once
+        timer.start();
     }
 
     public static void main(String[] args) {
         Game Game = new Game();
         Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Game.setSize(1200,600);
+        Game.setSize(1500,600);
         Game.setVisible(true);
         Game.setResizable(false);
+    }
+
+    // Method to show the pop-up window
+    private void showPopup(String instructions) {
+        // Create a new dialog window
+        JDialog popup = new JDialog(this, "Directions", true);
+
+        // Set the size and position of the dialog window
+        popup.setSize(800, 300);
+        popup.setLocationRelativeTo(this);
+
+        // Add the content to the pop-up window
+        JLabel directionsLabel = new JLabel(instructions);
+        directionsLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        popup.add(directionsLabel, BorderLayout.CENTER);
+
+        // Display the pop-up window
+        popup.setVisible(true);
     }
 
     @Override
@@ -150,6 +185,7 @@ public class Game extends JFrame implements ActionListener{
                 DataSource.getInstance().setLevel(8);
                 lh.load(8);
                 worldPanel.repaint();
+                showPopup("This level introduces loops! The repeat block contains other blocks. The blocks stacked inside the repeat block will be performed over and over until the spider is at the wall. Another way of describing it is that the nested blocks will be performed as many times as necessary for the spider to reach the wall. ");
             }
             if (((JButton) e.getSource()).getText().equals("9")) {
                 DataSource.getInstance().setLevel(9);
