@@ -12,6 +12,7 @@ public class Game extends JFrame implements ActionListener{
 
         Border blackline = BorderFactory.createLineBorder(Color.black);
 
+        DataSource.getInstance().setLevel(1);
         lh.load(1);
 
         JPanel mainPanel = new JPanel(new BorderLayout());
