@@ -104,6 +104,13 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             }
 
             selectedActionBlock.moving(x_diff, y_diff);
+            Block temp = selectedActionBlock.next;
+            int shift_y = selectedActionBlock.getY_len();
+            while(temp != null){
+                temp.moving(x_diff, y_diff + shift_y);
+                shift_y += selectedActionBlock.getY_len();
+                temp = temp.next;
+            }
         }
 
         repaint();

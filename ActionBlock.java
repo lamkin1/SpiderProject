@@ -7,6 +7,22 @@ public class ActionBlock extends Block{
     private String name;
     private Color color;
 
+    public void setX_len(int x_len) {
+        this.x_len = x_len;
+    }
+
+    public void setY_len(int y_len) {
+        this.y_len = y_len;
+    }
+
+    public int getX_len() {
+        return x_len;
+    }
+
+    public int getY_len() {
+        return y_len;
+    }
+
     public ActionBlock(int x1, int y1, String action){
         super.blocks = DataSource.getInstance().getBlockArrayInstance();
         super.setX1(x1);
