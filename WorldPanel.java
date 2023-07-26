@@ -32,7 +32,7 @@ public class WorldPanel extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         world.draw(g);
-        spider.draw(g);
+        //spider.draw(g);
         repaint();
     }
 
