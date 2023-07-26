@@ -47,7 +47,6 @@ public class LevelHelper {
             System.err.println("Error reading file " + fileName + ": " + e.getMessage());
         }
         fillDataSource();
-
     }
 
     public int getLevel(){
