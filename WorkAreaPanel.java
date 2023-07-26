@@ -25,7 +25,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     public WorkAreaPanel() {
         addMouseListener(this);
         addMouseMotionListener(this);
-        this.setPreferredSize(new Dimension(500, 500));
+        this.setPreferredSize(new Dimension(550, 500));
         setLayout(new BorderLayout());
 
         blocks = DataSource.getInstance().getBlockArrayInstance();
@@ -69,7 +69,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         for(Block block: blocks){
-            System.out.println("drawing");
             block.draw(g);
         }
         trashCan.draw(g);
@@ -88,7 +87,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
         for(Block block: blocks){
             if (block instanceof ActionBlock && (block.getX1() <= x1 && x1 <= block.getX1() + 30) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
-                System.out.println("block pressed");
                 selectedActionBlock = (ActionBlock) block;
                 offsetX = x1 - selectedActionBlock.getX1();
                 offsetY = y1 - selectedActionBlock.getY1();

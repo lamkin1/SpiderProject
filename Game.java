@@ -48,9 +48,37 @@ public class Game extends JFrame implements ActionListener{
         levels.add(level5);
 
 
-        JButton level6 = new JButton("6");
-        level6.addActionListener(this);
-        levels.add(level6);
+        JButton level7 = new JButton("7");
+        level7.addActionListener(this);
+        levels.add(level7);
+
+        JButton level9 = new JButton("9");
+        level9.addActionListener(this);
+        levels.add(level9);
+
+        JButton level10 = new JButton("10");
+        level10.addActionListener(this);
+        levels.add(level10);
+
+        JButton level11 = new JButton("11");
+        level11.addActionListener(this);
+        levels.add(level11);
+
+        JButton level12 = new JButton("12");
+        level12.addActionListener(this);
+        levels.add(level12);
+
+        JButton level13 = new JButton("13");
+        level13.addActionListener(this);
+        levels.add(level13);
+
+        JButton level14 = new JButton("14");
+        level14.addActionListener(this);
+        levels.add(level14);
+
+        JButton level15 = new JButton("15");
+        level15.addActionListener(this);
+        levels.add(level15);
 
         workAreaPanel.setBorder(blackline);
         worldPanel.setBorder(blackline);
@@ -66,35 +94,75 @@ public class Game extends JFrame implements ActionListener{
     public static void main(String[] args) {
         Game Game = new Game();
         Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Game.setSize(1000,600);
+        Game.setSize(1100,600);
         Game.setVisible(true);
         Game.setResizable(false);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().getClass().getName().equals("JButton")) {
+        if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
             if (((JButton) e.getSource()).getText().equals("1")) {
                 lh.load(1);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("2")) {
-                System.out.println("level 2 loaded");
                 lh.load(2);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("3")) {
                 lh.load(3);
+                worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("4")) {
                 lh.load(4);
+                worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("5")) {
                 lh.load(5);
+                worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("6")) {
                 lh.load(6);
+                worldPanel.repaint();
             }
+            if (((JButton) e.getSource()).getText().equals("7")) {
+                lh.load(7);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("8")) {
+                lh.load(8);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("9")) {
+                lh.load(9);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("10")) {
+                lh.load(10);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("11")) {
+                lh.load(11);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("12")) {
+                lh.load(12);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("13")) {
+                lh.load(13);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("14")) {
+                lh.load(14);
+                worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("15")) {
+                lh.load(15);
+                worldPanel.repaint();
+            }
+
         }
     }
 }

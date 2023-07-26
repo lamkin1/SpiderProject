@@ -9,7 +9,7 @@ public class WorldPanel extends JPanel implements ActionListener {
 
     //ConnectHelper connectHelper = new ConnectHelper();
     public WorldPanel() {
-        this.setPreferredSize(new Dimension(500, 500));//
+        this.setPreferredSize(new Dimension(550, 500));//
         this.setBackground(Color.WHITE);
 
         JButton play = new JButton("Play");
@@ -24,12 +24,18 @@ public class WorldPanel extends JPanel implements ActionListener {
         this.add(speedSlider);
     }
 
+    public void clearBoard(Graphics g){
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, 550, 500);
+    }
+
+
     public void paintComponent(Graphics g) {
-        // loop through struct that holds cells, spider, diamonds
         super.paintComponent(g);
         world.draw(g);
         repaint();
     }
+
 
     public void stateChanged(ChangeEvent e)
     {
