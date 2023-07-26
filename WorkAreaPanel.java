@@ -105,7 +105,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         int x_diff = x2 - offsetX;
         int y_diff = y2 - offsetY;
 
-        if (x_diff > 0 && x_diff + 15 < 50 && y_diff + 15 > 450){
+        if (x_diff > 40 && x_diff + 15 < 80 && y_diff + 15 > 435 && y_diff < 495){
             delete(selectedActionBlock);
         }
 
