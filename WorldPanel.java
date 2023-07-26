@@ -9,7 +9,7 @@ public class WorldPanel extends JPanel implements ActionListener {
 
     //ConnectHelper connectHelper = new ConnectHelper();
     public WorldPanel() {
-        this.setPreferredSize(new Dimension(550, 500));//
+        this.setPreferredSize(new Dimension(600, 500));//
         this.setBackground(Color.WHITE);
 
         JButton play = new JButton("Play");
@@ -17,16 +17,14 @@ public class WorldPanel extends JPanel implements ActionListener {
         speedSlider = new JSlider();
 
         play.addActionListener(this);
-        reset.addActionListener(this); // e->world.reset()??
+        play.setFocusPainted(false);
+        play.setBackground(Color.GREEN);
+        play.setOpaque(true);
+        play.setBorderPainted(false);
 
         this.add(play);
-        this.add(reset);
-        this.add(speedSlider);
-    }
 
-    public void clearBoard(Graphics g){
-        g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 550, 500);
+        this.add(speedSlider);
     }
 
 
@@ -48,13 +46,6 @@ public class WorldPanel extends JPanel implements ActionListener {
             if (((JButton) e.getSource()).getText().equals("Play")) {
                 System.out.println("selected play");
                 world.run();
-            }
-            if (((JButton) e.getSource()).getText().equals("Reset")) {
-                System.out.println("selected reset");
-                LevelHelper levelHelper = new LevelHelper();
-                int level = DataSource.getInstance().getLevel();
-                levelHelper.load(level);
-                repaint();
             }
         }
     }

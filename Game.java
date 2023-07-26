@@ -81,6 +81,14 @@ public class Game extends JFrame implements ActionListener{
         level15.addActionListener(this);
         levels.add(level15);
 
+        JButton reset = new JButton("Reset");
+        reset.setBackground(Color.GRAY);
+        reset.setOpaque(true);
+        reset.setBorderPainted(false);
+        reset.setFocusPainted(false);
+        reset.addActionListener(this);
+        levels.add(reset);
+
         workAreaPanel.setBorder(blackline);
         worldPanel.setBorder(blackline);
         levels.setBorder(blackline);
@@ -95,7 +103,7 @@ public class Game extends JFrame implements ActionListener{
     public static void main(String[] args) {
         Game Game = new Game();
         Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Game.setSize(1100,600);
+        Game.setSize(1200,600);
         Game.setVisible(true);
         Game.setResizable(false);
     }
@@ -177,6 +185,13 @@ public class Game extends JFrame implements ActionListener{
                 DataSource.getInstance().setLevel(15);
                 lh.load(15);
                 worldPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("Reset")) {
+                DataSource.getInstance().clearArrays();
+                int level = DataSource.getInstance().getLevel();
+                lh.load(level);
+                worldPanel.repaint();
+                workAreaPanel.repaint();
             }
 
         }
