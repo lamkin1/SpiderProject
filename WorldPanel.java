@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.*;
 public class WorldPanel extends JPanel implements ActionListener {
     World world = new World();
-    JSlider speedSlider;
 
     private JButton play;
 
@@ -15,7 +14,6 @@ public class WorldPanel extends JPanel implements ActionListener {
         this.setBackground(Color.WHITE);
 
         play = new JButton("Play");
-        speedSlider = new JSlider();
 
         play.addActionListener(this);
 //        play.setFocusPainted(false);
@@ -25,7 +23,6 @@ public class WorldPanel extends JPanel implements ActionListener {
 
         this.add(play);
 
-        this.add(speedSlider);
     }
 
 
@@ -35,11 +32,6 @@ public class WorldPanel extends JPanel implements ActionListener {
         repaint();
     }
 
-
-    public void stateChanged(ChangeEvent e)
-    {
-        System.out.println(speedSlider.getValue());
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
