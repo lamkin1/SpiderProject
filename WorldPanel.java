@@ -3,7 +3,7 @@ import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import java.awt.*;
 import java.awt.event.*;
-public class WorldPanel extends JPanel implements ActionListener, MouseListener {
+public class WorldPanel extends JPanel implements ActionListener {
     World world = new World();
     JSlider speedSlider;
 
@@ -51,34 +51,5 @@ public class WorldPanel extends JPanel implements ActionListener, MouseListener 
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
 
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        System.out.println("entered play button");
-        //play.setBorderPainted(true);
-        play.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(Color.GRAY, 5), // Outer border (shadow effect)
-                BorderFactory.createEmptyBorder(6, 12, 6, 12)    // Inner border (main button border)
-        ));
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        play.setBorder(BorderFactory.createEmptyBorder(6, 12, 6, 12)); // Only the inner border (main button border)
-        //play.setBorderPainted(false);
-    }
 }
