@@ -1,11 +1,16 @@
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class World {
     private LevelHelper level = new LevelHelper();
     private DataSource dataSource = DataSource.getInstance();
     private ArrayList<Cell> cells = dataSource.getCellArrayInstance();
     private ArrayList<Block> blocks = dataSource.getBlockArrayInstance();
+    private boolean allCorrect = false;
 
     public void draw(Graphics g){
         for(Cell cell : cells){
@@ -19,8 +24,47 @@ public class World {
         }
     }
 
-    /*
     public boolean compare(){
-        // compare elements from datasource data structures
-    }*/
+        //have to change this
+        String filePath = "C:\\Users\\miona\\Desktop\\testing for spider\\src\\Level_2.txt";
+
+        List<NumberColorPair> numberColorPairs = new ArrayList<>();
+
+        try (FileReader fileReader = new FileReader(filePath);
+             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+
+            bufferedReader.readLine();
+
+            String line2 = bufferedReader.readLine();
+            String[] numbers = line2.split(",");
+            int[] intNumbers = new int[numbers.length];
+            for (int i = 0; i < numbers.length; i++) {
+                intNumbers[i] = Integer.parseInt(numbers[i]);
+            }
+
+            // Read and parse line 3
+            String line3 = bufferedReader.readLine();
+            String[] colors = line3.split(",");
+
+            // Pair the numbers and colors together and add to the list
+            for (int i = 0; i < intNumbers.length && i < colors.length; i++) {
+                NumberColorPair pair = new NumberColorPair(intNumbers[i], colors[i]);
+                numberColorPairs.add(pair);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        for (NumberColorPair pair : numberColorPairs) {
+            if(cells.get(pair.getNumber() - 1).getColor().equals(pair.getColor())){
+                allCorrect = true;
+            }
+            else{
+                allCorrect = false;
+            }
+        }
+        System.out.println("Success, can move to next level");
+        return allCorrect;
+    }
 }
