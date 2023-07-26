@@ -51,6 +51,10 @@ public class WorldPanel extends JPanel implements ActionListener {
             }
             if (((JButton) e.getSource()).getText().equals("Reset")) {
                 System.out.println("selected reset");
+                LevelHelper levelHelper = new LevelHelper();
+                int level = DataSource.getInstance().getLevel();
+                levelHelper.load(level);
+                repaint();
             }
         }
     }
