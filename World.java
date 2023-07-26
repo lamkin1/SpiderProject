@@ -7,9 +7,8 @@ import java.util.List;
 
 public class World {
     private LevelHelper level = new LevelHelper();
-    private DataSource dataSource = DataSource.getInstance();
-    private ArrayList<Cell> cells = dataSource.getCellArrayInstance();
-    private ArrayList<Block> blocks = dataSource.getBlockArrayInstance();
+    private ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
+    private ArrayList<Block> blocks = DataSource.getInstance().getBlockArrayInstance();
     private boolean allCorrect = false;
 
     public void draw(Graphics g){
