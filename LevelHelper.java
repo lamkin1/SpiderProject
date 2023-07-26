@@ -25,6 +25,9 @@ public class LevelHelper {
 
     public void load(int level){
         this.level = level;
+        diamondCellList.clear(); // wasnt sure if we were using this list or the diamond list in datasource
+        diamondColorList.clear();
+        DataSource.getInstance().clearArrays();
 
         String fileName = "Level_" + level + ".txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
@@ -70,4 +73,5 @@ public class LevelHelper {
             y += y_length;
         }
     }
+
 }

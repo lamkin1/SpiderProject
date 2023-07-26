@@ -58,4 +58,10 @@ public class DataSource{
             diamonds.add(D);
         }
     }
+
+    public void clearArrays(){
+        blocks.clear();
+        cells.clear();
+        diamonds.clear();
+    }
 }
