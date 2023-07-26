@@ -119,7 +119,7 @@ public class Game extends JFrame implements ActionListener{
 
     public static void main(String[] args) {
         Game Game = new Game();
-        Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//
         Game.setSize(1500,600);
         Game.setVisible(true);
         Game.setResizable(false);

@@ -25,7 +25,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     public WorkAreaPanel() {
         addMouseListener(this);
         addMouseMotionListener(this);
-        this.setPreferredSize(new Dimension(600, 500));
+        this.setPreferredSize(new Dimension(750, 500));
         setLayout(new BorderLayout());
 
         blocks = DataSource.getInstance().getBlockArrayInstance();
