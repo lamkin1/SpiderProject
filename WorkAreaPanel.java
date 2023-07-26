@@ -74,11 +74,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         trashCan.draw(g);
     }
 
-    public void delete(Block block){
-        blocks.remove(block);
-    }
-
-
     @Override
     public void mousePressed(MouseEvent e) {
         //x_len = 30, y_len = 15;
@@ -104,7 +99,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         int y_diff = y2 - offsetY;
 
         if (x_diff > 40 && x_diff + 15 < 80 && y_diff + 15 > 435 && y_diff < 495){
-            delete(selectedActionBlock);
+            trashCan.delete(selectedActionBlock);
         }
 
         selectedActionBlock.moving(x_diff, y_diff);
