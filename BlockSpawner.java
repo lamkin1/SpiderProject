@@ -11,9 +11,10 @@ public class BlockSpawner extends JButton{
 
      public BlockSpawner(int x1, int y1, Color color, String name){
          super(name);
-        this.x1 = x1;
-        this.y1 = y1;
-        this.color = color;
+         this.x1 = x1;
+         this.y1 = y1;
+         this.color = color;
+         this.setBackground(color);
     }
 
     public void action(){
