@@ -48,7 +48,9 @@ public class ActionBlock extends Block{
         }
     }
 
-    public void run(){;}
+    public String getName(){
+        return this.name;
+    }
 
     public void draw(Graphics g){
         g.setColor(color);

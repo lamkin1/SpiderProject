@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class DataSource{
     private static DataSource instance;
     private int[] SpiderLocation = {0, 0};
-    private int[] GameSize = {0, 0};
     private ArrayList<Block> blocks = new ArrayList<>();
     private ArrayList<Cell> cells = new ArrayList<>();
     private ArrayList<Diamond> diamonds = new ArrayList<>();
@@ -26,15 +25,6 @@ public class DataSource{
 
     public int[] getSpiderLocation(){
         return SpiderLocation;
-    }
-
-    public void setGameSize(int width, int height){
-        GameSize[0] = width;
-        GameSize[1] = height;
-    }
-
-    public int[] getGameSize(){
-        return GameSize;
     }
 
     public void setLevel(int level){

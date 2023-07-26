@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 public class WorldPanel extends JPanel implements ActionListener {
     World world = new World();
+    //need to update Spider spider so it gets drawn onto the cells
+    Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],
+            DataSource.getInstance().getSpiderLocation()[1], "up");
 
     private JButton play;
 
@@ -29,6 +32,7 @@ public class WorldPanel extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         world.draw(g);
+        spider.draw(g);
         repaint();
     }
 
@@ -38,10 +42,26 @@ public class WorldPanel extends JPanel implements ActionListener {
         if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
             if (((JButton) e.getSource()).getText().equals("Play")) {
                 System.out.println("selected play");
-                world.run();
+                play();
             }
         }
     }
 
+    public void play(){
+        for(Block block : DataSource.getInstance().getBlockArrayInstance()){
+            run(block);
+        }
+    }
 
+    public void run(Block b){
+        switch(((ActionBlock) b).getName()){
+            case "Step":
+                spider.move();
+                break;
+            case "Turn":
+                spider.turn();
+                break;
+
+        }
+    }
 }
