@@ -2,6 +2,7 @@ import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,19 +78,23 @@ public class LevelHelper {
             y += y_length;
         }
 
-
+        // for color
+        HashMap<String, Color> colorMap = new HashMap<>();
+        colorMap.put("red", Color.RED);
+        colorMap.put("blue", Color.BLUE);
+        colorMap.put("green", Color.GREEN);
 
         // fill diamond
         for(int i = 0; i < diamondCellList.size(); i++) {
             cellNum = diamondCellList.get(i); //cell number
-            color = Color.getColor(diamondColorList.get(i));
+            color = colorMap.get(diamondColorList.get(i));
             d = new Diamond(color,x_default + x_length * ((cellNum % size) - 1),x_default + (int) (y_length * (Math.floor(cellNum / size))));
             DataSource.getInstance().getDiamondArrayInstance().add(d);
         }
 
         // draw spider
         int spiderCell = spiderSpawn;
-        DataSource.getInstance().setSpiderLocation(x_default + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
+        DataSource.getInstance().setSpiderLocation(x_default + 10 + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
 
 
 
