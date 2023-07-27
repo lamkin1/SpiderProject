@@ -5,8 +5,9 @@ import java.util.ArrayList;
 //NEED TO IMPLEMENT STEP, TURN, PAINT, AND 1 LOOP BLOCK; LOOP BLOCK IS ONLY TIME TO USE DECORATOR
 public abstract class Block{
     Block next = null;
+    Block prev = null;
     private int x1, y1, x2, y2;
-    ArrayList<Block> blocks;
+
 
     public abstract void draw(Graphics g);
 

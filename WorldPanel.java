@@ -2,7 +2,10 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import java.awt.*;
+import java.util.ArrayList;
 import java.awt.event.*;
+import java.util.Comparator;
+
 public class WorldPanel extends JPanel implements ActionListener {
     World world = new World();
     //need to update Spider spider so it gets drawn onto the cells
@@ -48,8 +51,14 @@ public class WorldPanel extends JPanel implements ActionListener {
     }
 
     public void play(){
-        for(Block block : DataSource.getInstance().getBlockArrayInstance()){
+        DataSource.getInstance().getBlocksRunInstance().sort(Comparator.comparing(Block::getY1));
+        for(Block block : DataSource.getInstance().getBlocksRunInstance()){
             run(block);
+            Block temp = block.next;
+            while(temp != null){
+                run(temp);
+                temp = temp.next;
+            }
         }
     }
 
@@ -59,7 +68,11 @@ public class WorldPanel extends JPanel implements ActionListener {
                 spider.move();
                 break;
             case "Turn":
+                System.out.println("turn");
                 spider.turn();
+                break;
+            case "Paint Red":
+                System.out.println("paint red");
                 break;
 
         }

@@ -18,7 +18,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     private ActionBlock selectedActionBlock;
 
     JPanel buttonPanel = new JPanel();
-    ArrayList<Block> blocks;
 
     //private Block chosenBlock;
     //ConnectHelper connectHelper = new ConnectHelper();
@@ -27,8 +26,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         addMouseMotionListener(this);
         this.setPreferredSize(new Dimension(700, 500));
         setLayout(new BorderLayout());
-
-        blocks = DataSource.getInstance().getBlockArrayInstance();
 
         this.setBackground(Color.WHITE);
         step = new BlockSpawner(450, 100, Color.ORANGE, "Step");
@@ -68,8 +65,13 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for(Block block: blocks){
+        for(Block block: DataSource.getInstance().getBlockArrayInstance()){
             block.draw(g);
+            Block temp = block.next;
+            while(temp!= null){
+                temp.draw(g);
+                temp = temp.next;
+            }
         }
         trashCan.draw(g);
     }
@@ -80,7 +82,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         x1 = e.getX();
         y1 = e.getY();
 
-        for(Block block: blocks){
+        for(Block block: DataSource.getInstance().getBlockArrayInstance()){
             if (block instanceof ActionBlock && (block.getX1() <= x1 && x1 <= block.getX1() + 30) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
                 selectedActionBlock = (ActionBlock) block;
                 offsetX = x1 - selectedActionBlock.getX1();
@@ -149,35 +151,40 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             if (((JButton) e.getSource()).getText().equals("Step")) {
                 System.out.println("making step block");
                 ActionBlock ab = new ActionBlock(375, 50, "Step");
-                blocks.add(ab);
+                DataSource.getInstance().getBlockArrayInstance().add(ab);
+                DataSource.getInstance().getBlocksRunInstance().add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Turn")) {
                 System.out.println("making turn block");
                 ActionBlock ab = new ActionBlock(375, 125, "Turn");
-                blocks.add(ab);
+                DataSource.getInstance().getBlockArrayInstance().add(ab);
+                DataSource.getInstance().getBlocksRunInstance().add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Red")) {
                 System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 200, "Paint Red");
-                blocks.add(ab);
+                DataSource.getInstance().getBlockArrayInstance().add(ab);
+                DataSource.getInstance().getBlocksRunInstance().add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Blue")) {
                 System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 275, "Paint Blue");
-                blocks.add(ab);
+                DataSource.getInstance().getBlockArrayInstance().add(ab);
+                DataSource.getInstance().getBlocksRunInstance().add(ab);
                 repaint();
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Green")) {
                 System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 350, "Paint Green");
-                blocks.add(ab);
+                DataSource.getInstance().getBlockArrayInstance().add(ab);
+                DataSource.getInstance().getBlocksRunInstance().add(ab);
                 repaint();
             }
         }

@@ -4,6 +4,7 @@ public class DataSource{
     private static DataSource instance;
     private int[] SpiderLocation = {0, 0};
     private ArrayList<Block> blocks = new ArrayList<>();
+    private ArrayList<Block> blocksRun = new ArrayList<>();
     private ArrayList<Cell> cells = new ArrayList<>();
     private ArrayList<Diamond> diamonds = new ArrayList<>();
     private int level;
@@ -41,6 +42,10 @@ public class DataSource{
 
     public ArrayList<Cell> getCellArrayInstance(){
         return cells;
+    }
+
+    public java.util.ArrayList<Block> getBlocksRunInstance() {
+        return blocksRun;
     }
 
     public void setDiamondArray(ArrayList<Diamond> Diamonds){
