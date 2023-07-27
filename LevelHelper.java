@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -54,6 +55,10 @@ public class LevelHelper {
     }
 
     private void fillDataSource(){
+        Diamond d;
+        Color color;
+        int cellNum;
+
         int x_default = 200;
         x_default -= size*13;
         int x = x_default;
@@ -71,6 +76,28 @@ public class LevelHelper {
             x = x_default;
             y += y_length;
         }
+
+
+
+        // fill diamond
+        for(int i = 0; i < diamondCellList.size(); i++) {
+            cellNum = diamondCellList.get(i); //cell number
+            color = Color.getColor(diamondColorList.get(i));
+            d = new Diamond(color,x_default + x_length * ((cellNum % size) - 1),x_default + (int) (y_length * (Math.floor(cellNum / size))));
+            DataSource.getInstance().getDiamondArrayInstance().add(d);
+        }
+
+        // draw spider
+        int spiderCell = spiderSpawn;
+        DataSource.getInstance().setSpiderLocation(x_default + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
+
+
+
+
+
+
+
+
     }
 
 }

@@ -10,7 +10,8 @@ public class Diamond{
 
     public void draw(Graphics g){
         g.setColor(color);
-        g.drawRect(x, y, 5, 5);
+        g.fillRect(x,y,5,5);
+        //g.drawRect(x, y, 5, 5);
     }
 
     public Color getColor() {

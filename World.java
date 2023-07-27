@@ -11,14 +11,18 @@ public class World {
     private ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
     private ArrayList<Block> blocks = DataSource.getInstance().getBlockArrayInstance();
     private boolean allCorrect = false;
-    //need to update Spider spider so it gets drawn onto the cells
-    Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],
-            DataSource.getInstance().getSpiderLocation()[1], "up");
+    Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],DataSource.getInstance().getSpiderLocation()[1],"up");
 
     public void draw(Graphics g){
-        for(Cell cell : cells){
+        for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
             cell.draw(g);
         }
+
+        for(Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()){
+            diamond.draw(g);
+        }
+
+        spider.draw(g);
     }
 
     public boolean compare(){

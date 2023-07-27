@@ -54,6 +54,10 @@ public class DataSource{
         }
     }
 
+    public ArrayList<Diamond> getDiamondArrayInstance(){
+        return diamonds;
+    }
+
     public void clearArrays(){
         blocks.clear();
         cells.clear();
