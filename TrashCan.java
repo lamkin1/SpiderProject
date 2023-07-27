@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.xml.crypto.Data;
 import java.awt.*;
 public class TrashCan extends JPanel {
     private int x;
@@ -21,6 +22,7 @@ public class TrashCan extends JPanel {
 
         if(trashcan.intersects(block)){
             DataSource.getInstance().getBlockArrayInstance().remove(ab);
+            DataSource.getInstance().getBlocksRunInstance().remove(ab);
         }
     }
 }

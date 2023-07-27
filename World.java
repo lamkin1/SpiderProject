@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class World {
@@ -10,6 +11,9 @@ public class World {
     private ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
     private ArrayList<Block> blocks = DataSource.getInstance().getBlockArrayInstance();
     private boolean allCorrect = false;
+    //need to update Spider spider so it gets drawn onto the cells
+    Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],
+            DataSource.getInstance().getSpiderLocation()[1], "up");
 
     public void draw(Graphics g){
         for(Cell cell : cells){
@@ -59,5 +63,39 @@ public class World {
         }
         System.out.println("Success, can move to next level");
         return allCorrect;
+    }
+
+    public void play(){
+        DataSource.getInstance().getBlocksRunInstance().sort(Comparator.comparing(Block::getY1));
+        for(Block block : DataSource.getInstance().getBlocksRunInstance()){
+            run(block);
+            Block temp = block.next;
+            while(temp != null){
+                run(temp);
+                temp = temp.next;
+            }
+        }
+    }
+
+    public void run(Block b){
+        switch(((ActionBlock) b).getName()){
+            case "Step":
+                System.out.println("step");
+                spider.move();
+                break;
+            case "Turn":
+                System.out.println("turn");
+                spider.turn();
+                break;
+            case "Paint Red":
+                System.out.println("paint red");
+                break;
+            case "Paint Blue":
+                System.out.println("paint blue");
+                break;
+            case "Paint Green":
+                System.out.println("paint green");
+                break;
+        }
     }
 }

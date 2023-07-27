@@ -23,7 +23,6 @@ public abstract class Block{
         moving(this.getX1(), this.getY2());
     }
 
-
     public int getX1() {
         return x1;
     }
