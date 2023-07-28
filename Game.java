@@ -120,7 +120,7 @@ public class Game extends JFrame implements ActionListener{
     public static void main(String[] args) {
         Game Game = new Game();
         Game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//
-        Game.setSize(1500,600);
+        Game.setSize(1400,600);
         Game.setVisible(true);
         Game.setResizable(false);
     }
@@ -134,10 +134,19 @@ public class Game extends JFrame implements ActionListener{
         popup.setSize(800, 300);
         popup.setLocationRelativeTo(this);
 
-        // Add the content to the pop-up window
-        JLabel directionsLabel = new JLabel(instructions);
-        directionsLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        popup.add(directionsLabel, BorderLayout.CENTER);
+        // Convert the instructions string to HTML format with line breaks
+        String htmlInstructions = "<html>" + instructions.replace("\n", "<br>") + "</html>";
+
+        // Add the content to the pop-up window using a JTextPane
+        JTextPane directionsPane = new JTextPane();
+        directionsPane.setContentType("text/html");
+        directionsPane.setText(htmlInstructions);
+        directionsPane.setEditable(false);
+        directionsPane.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+        directionsPane.setAlignmentY(JComponent.CENTER_ALIGNMENT);
+
+        JScrollPane scrollPane = new JScrollPane(directionsPane);
+        popup.add(scrollPane, BorderLayout.CENTER);
 
         // Display the pop-up window
         popup.setVisible(true);
@@ -185,7 +194,7 @@ public class Game extends JFrame implements ActionListener{
                 DataSource.getInstance().setLevel(8);
                 lh.load(8);
                 worldPanel.repaint();
-                showPopup("This level introduces loops! The repeat block contains other blocks. The blocks stacked inside the repeat block will be performed over and over until the spider is at the wall. Another way of describing it is that the nested blocks will be performed as many times as necessary for the spider to reach the wall. ");
+                showPopup("This level introduces loops! The repeat block contains other blocks. \nThe blocks stacked inside the repeat block will be performed over and over until the spider is at the wall. \nAnother way of describing it is that the nested blocks will be performed as many times as necessary for the spider to reach the wall. ");
             }
             if (((JButton) e.getSource()).getText().equals("9")) {
                 DataSource.getInstance().setLevel(9);
