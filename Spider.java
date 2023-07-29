@@ -1,9 +1,11 @@
-import javax.imageio.ImageIO;
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+import javax.imageio.ImageIO;
+import java.awt.*;
 public class Spider {
     private int x;
     private int y;
@@ -43,17 +45,32 @@ public class Spider {
         switch(this.direction){
             case "up":
                 this.direction = "right";
+                rotateImage(90);
                 break;
             case "down":
                 this.direction = "left";
+                rotateImage(90);
                 break;
             case "left":
                 this.direction = "up";
+                rotateImage(90);
                 break;
             case "right":
                 this.direction = "down";
+                rotateImage(90);
                 break;
         }
+    }
+
+    public void rotateImage(double angle) {
+        double rotationRequired = Math.toRadians(angle);
+        double locationX = spiderImage.getWidth() / 2;
+        double locationY = spiderImage.getHeight() / 2;
+        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
+        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+
+        // Drawing the rotated image at the required drawing locations
+        spiderImage = op.filter(spiderImage, null);
     }
 
     public void draw(Graphics g){
