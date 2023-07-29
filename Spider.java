@@ -78,4 +78,12 @@ public class Spider {
             g.drawImage(spiderImage, x-5, y+5, 25, 25, null);
         }
     }
+
+    public void setspiderX(int x){
+        this.x = x;
+    }
+
+    public void setSpiderY(int y){
+        this.y = y;
+    }
 }
