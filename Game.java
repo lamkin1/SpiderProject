@@ -7,6 +7,8 @@ public class Game extends JFrame implements ActionListener{
     private WorkAreaPanel workAreaPanel;
     private LevelHelper lh = new LevelHelper();
 
+    private Spider spider;
+    int[] spiderLoc;
     public Game(){
         super("Spider World");
 
@@ -158,85 +160,145 @@ public class Game extends JFrame implements ActionListener{
             if (((JButton) e.getSource()).getText().equals("1")) {
                 DataSource.getInstance().setLevel(1);
                 lh.load(1);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("2")) {
                 DataSource.getInstance().setLevel(2);
                 lh.load(2);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("3")) {
                 DataSource.getInstance().setLevel(3);
                 lh.load(3);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("4")) {
                 DataSource.getInstance().setLevel(4);
                 lh.load(4);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("5")) {
                 DataSource.getInstance().setLevel(5);
                 lh.load(5);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("6")) {
                 DataSource.getInstance().setLevel(6);
                 lh.load(6);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("7")) {
                 DataSource.getInstance().setLevel(7);
                 lh.load(7);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("8")) {
                 DataSource.getInstance().setLevel(8);
                 lh.load(8);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
                 showPopup("This level introduces loops! The repeat block contains other blocks. \nThe blocks stacked inside the repeat block will be performed over and over until the spider is at the wall. \nAnother way of describing it is that the nested blocks will be performed as many times as necessary for the spider to reach the wall. ");
             }
             if (((JButton) e.getSource()).getText().equals("9")) {
                 DataSource.getInstance().setLevel(9);
                 lh.load(9);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("10")) {
                 DataSource.getInstance().setLevel(10);
                 lh.load(10);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("11")) {
                 DataSource.getInstance().setLevel(11);
                 lh.load(11);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("12")) {
                 DataSource.getInstance().setLevel(12);
                 lh.load(12);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("13")) {
                 DataSource.getInstance().setLevel(12);
                 lh.load(13);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("14")) {
                 DataSource.getInstance().setLevel(14);
                 lh.load(14);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("15")) {
                 DataSource.getInstance().setLevel(15);
                 lh.load(15);
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("Reset")) {
                 DataSource.getInstance().clearArrays();
                 int level = DataSource.getInstance().getLevel();
                 lh.load(level);
-                Spider spider = worldPanel.world.getSpider();
-                int[] spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider = worldPanel.world.getSpider();
+                spiderLoc = DataSource.getInstance().getSpiderLocation();
                 spider.setspiderX(spiderLoc[0]);
                 spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
