@@ -274,7 +274,7 @@ public class Game extends JFrame implements ActionListener{
                 workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("Directions")) {
-                showPopup("Use the blocks to make the spider move!\nSet the sequence of blocks up in the way you want the spider to move\n The spider has the following behaviors: step forward, turn, and paint the cell a certain color.\nColor the cells based off of the diamond's color is present.");
+                showPopup("Use the blocks to make the spider move!\nSet the sequence of blocks up in the way you want the spider to move\n The spider has the following behaviors: step forward, turn, and paint the cell a certain color.\nColor the cells based off of the diamond's color is present.\n\nIf you are in level 8, then you have loops!\nUse the loop structure to minimize the amount of blocks you have.\n The purpose of loops is to perform a certain action a certain number of times without having to use repeated blocks.");
             }
         }
     }

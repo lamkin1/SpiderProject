@@ -10,6 +10,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     private BlockSpawner paintBlue;
     private BlockSpawner paintGreen;
     private BlockSpawner turn;
+    private BlockSpawner loop;
 
     private TrashCan trashCan;
 
@@ -42,18 +43,21 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         paintGreen.setBackground(Color.GREEN);
         paintGreen.setOpaque(true);
         paintGreen.setBorderPainted(false);
+        loop = new BlockSpawner(450, 100, Color.ORANGE, "Loop");
 
         buttonPanel.add(step);
         buttonPanel.add(turn);
         buttonPanel.add(paintRed);
         buttonPanel.add(paintBlue);
         buttonPanel.add(paintGreen);
+        buttonPanel.add(loop);
 
         step.addActionListener(this);
         paintRed.addActionListener(this);
         paintBlue.addActionListener(this);
         paintGreen.addActionListener(this);
         turn.addActionListener(this);
+        loop.addActionListener(this);
 
         buttonPanel.setLayout(new GridLayout(6, 1));
 
@@ -183,6 +187,14 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             if (((JButton) e.getSource()).getText().equals("Paint Green")) {
                 System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 350, "Paint Green");
+                DataSource.getInstance().getBlockArrayInstance().add(ab);
+                DataSource.getInstance().getBlocksRunInstance().add(ab);
+                repaint();
+            }
+
+            if (((JButton) e.getSource()).getText().equals("Loop")) {
+                System.out.println("making paint block");
+                ActionBlock ab = new ActionBlock(375, 425, "Loop");
                 DataSource.getInstance().getBlockArrayInstance().add(ab);
                 DataSource.getInstance().getBlocksRunInstance().add(ab);
                 repaint();
