@@ -11,7 +11,7 @@ public class World {
     private ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
     private ArrayList<Block> blocks = DataSource.getInstance().getBlockArrayInstance();
     private boolean allCorrect = false;
-    Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],DataSource.getInstance().getSpiderLocation()[1],"up");
+    private Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],DataSource.getInstance().getSpiderLocation()[1],"up");
 
     public void draw(Graphics g){
         for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
@@ -101,5 +101,9 @@ public class World {
                 System.out.println("paint green");
                 break;
         }
+    }
+
+    public Spider getSpider(){
+        return spider;
     }
 }

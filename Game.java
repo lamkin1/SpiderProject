@@ -238,7 +238,6 @@ public class Game extends JFrame implements ActionListener{
                 worldPanel.repaint();
                 workAreaPanel.repaint();
             }
-
         }
     }
 }
