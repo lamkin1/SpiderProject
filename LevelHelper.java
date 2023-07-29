@@ -24,6 +24,7 @@ public class LevelHelper {
     //Line 2: List of cells that diamonds will be in, currently indexing starting at 1, going left to right, up to down
     //line 3: List of colors for the diamonds in the previous line
     //Line 4: Spider spawn cell
+    //Line 5: Spider direction (1 is up, 2 is down, 3 is left, 4 is right)
 
     public void load(int level){
         this.level = level;
