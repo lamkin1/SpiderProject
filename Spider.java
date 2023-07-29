@@ -9,6 +9,10 @@ import java.awt.*;
 public class Spider {
     private int x;
     private int y;
+    private int limitTop;
+    private int limitBottom;
+    private int limitRight;
+    private int limitLeft;
     private String direction;
     private BufferedImage spiderImage;
 
@@ -23,22 +27,23 @@ public class Spider {
         }
     }
 
-    public void move(){
+    public Boolean move(){
         switch(this.direction){
             case "up":
                 this.y -= 35;
-                break;
+                return limitSpider();
             case "down":
                 this.y += 35;
-                break;
+                return limitSpider();
             case "left":
                 this.x -= 35;
-                break;
+                return limitSpider();
             case "right":
                 this.x += 35;
-                break;
+                return limitSpider();
         }
         DataSource.getInstance().setSpiderLocation(this.x, this.y);
+        return false;
     }
 
     public void turn(){
@@ -85,5 +90,32 @@ public class Spider {
 
     public void setSpiderY(int y){
         this.y = y;
+    }
+
+    public void setLimits(int right, int left, int bottom, int top){
+        this.limitRight = right;
+        this.limitLeft = left;
+        this.limitBottom = bottom;
+        this.limitTop = top;
+    }
+
+    public Boolean limitSpider(){
+        if(this.x > this.limitRight){
+            this.x = this.limitRight;
+            return true;
+        }
+        if(this.x < this.limitLeft){
+            this.x = this.limitLeft;
+            return true;
+        }
+        if(this.y > this.limitBottom){
+            this.y = this.limitBottom;
+            return true;
+        }
+        if(this.y < this.limitTop){
+            this.y = this.limitTop;
+            return true;
+        }
+        return false;
     }
 }
