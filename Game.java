@@ -235,6 +235,10 @@ public class Game extends JFrame implements ActionListener{
                 DataSource.getInstance().clearArrays();
                 int level = DataSource.getInstance().getLevel();
                 lh.load(level);
+                Spider spider = worldPanel.world.getSpider();
+                int[] spiderLoc = DataSource.getInstance().getSpiderLocation();
+                spider.setspiderX(spiderLoc[0]);
+                spider.setSpiderY(spiderLoc[1]);
                 worldPanel.repaint();
                 workAreaPanel.repaint();
             }
