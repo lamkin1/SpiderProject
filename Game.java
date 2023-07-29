@@ -8,7 +8,7 @@ public class Game extends JFrame implements ActionListener{
     private LevelHelper lh = new LevelHelper();
 
     private Spider spider;
-    int[] spiderLoc;
+    private int[] spiderLoc;
     public Game(){
         super("Spider World");
 
@@ -99,6 +99,14 @@ public class Game extends JFrame implements ActionListener{
         reset.addActionListener(this);
         levels.add(reset);
 
+        JButton directions = new JButton("Directions");
+        directions.setBackground(Color.GRAY);
+        directions.setOpaque(true);
+        directions.setBorderPainted(false);
+        directions.setFocusPainted(false);
+        directions.addActionListener(this);
+        levels.add(directions);
+
         workAreaPanel.setBorder(blackline);
         worldPanel.setBorder(blackline);
         levels.setBorder(blackline);
@@ -159,6 +167,7 @@ public class Game extends JFrame implements ActionListener{
         spiderLoc = DataSource.getInstance().getSpiderLocation();
         spider.setspiderX(spiderLoc[0]);
         spider.setSpiderY(spiderLoc[1]);
+
     }
 
 
@@ -263,6 +272,9 @@ public class Game extends JFrame implements ActionListener{
                 setSpiderLoc();
                 worldPanel.repaint();
                 workAreaPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("Directions")) {
+                showPopup("Use the blocks to make the spider move!\nSet the sequence of blocks up in the way you want the spider to move\n The spider has the following behaviors: step forward, turn, and paint the cell a certain color.\nColor the cells based off of the diamond's color is present.");
             }
         }
     }
