@@ -167,7 +167,6 @@ public class Game extends JFrame implements ActionListener{
         spiderLoc = DataSource.getInstance().getSpiderLocation();
         spider.setspiderX(spiderLoc[0]);
         spider.setSpiderY(spiderLoc[1]);
-
     }
 
 
