@@ -99,6 +99,14 @@ public class Game extends JFrame implements ActionListener{
         reset.addActionListener(this);
         levels.add(reset);
 
+        JButton directions = new JButton("Directions");
+        directions.setBackground(Color.GRAY);
+        directions.setOpaque(true);
+        directions.setBorderPainted(false);
+        directions.setFocusPainted(false);
+        directions.addActionListener(this);
+        levels.add(directions);
+
         workAreaPanel.setBorder(blackline);
         worldPanel.setBorder(blackline);
         levels.setBorder(blackline);
@@ -279,6 +287,9 @@ public class Game extends JFrame implements ActionListener{
                 checkRotate(level);
                 worldPanel.repaint();
                 workAreaPanel.repaint();
+            }
+            if (((JButton) e.getSource()).getText().equals("Directions")) {
+                showPopup("Use the blocks to move the spider across the game board.\n The spider has the following behaviors: step, turn, and paint.\nSet up the blocks in a sequence for completing the level.\n\n If you have loops, use them to minimize the repeated code1");
             }
         }
     }
