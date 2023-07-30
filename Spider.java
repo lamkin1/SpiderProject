@@ -1,4 +1,3 @@
-import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
@@ -25,30 +24,36 @@ public class Spider {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Cell c1 = DataSource.getInstance().getCellArrayInstance().get(0);
+        limitTop = c1.getY();
+        limitLeft = c1.getX();
+        int size = DataSource.getInstance().getCellArrayInstance().size();
+        limitBottom = c1.getY() + size*35;
+        limitRight = c1.getX() + size*35;
     }
 
-    public void move(){
+    public Boolean move(){
         Boolean b = false;
         switch(this.direction){
             case "up":
                 this.y -= 35;
-                //b = limitSpider();
+                b = limitSpider();
                 break;
             case "down":
                 this.y += 35;
-                //b = limitSpider();
+                b = limitSpider();
                 break;
             case "left":
                 this.x -= 35;
-                //b = limitSpider();
+                b = limitSpider();
                 break;
             case "right":
                 this.x += 35;
-                //b = limitSpider();
+                b = limitSpider();
                 break;
         }
         DataSource.getInstance().setSpiderLocation(this.x, this.y);
-        //return b;
+        return b;
     }
 
     public void turn(){
@@ -103,13 +108,6 @@ public class Spider {
 
     public String getDirection(){
         return this.direction;
-    }
-
-    public void setLimits(int right, int left, int bottom, int top){
-        this.limitRight = right;
-        this.limitLeft = left;
-        this.limitBottom = bottom;
-        this.limitTop = top;
     }
 
     public Boolean limitSpider(){
