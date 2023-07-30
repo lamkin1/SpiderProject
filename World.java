@@ -26,48 +26,67 @@ public class World {
     }
 
     public boolean compare(){
-        //have to change this
-        String filePath = "C:\\Users\\miona\\Desktop\\testing for spider\\src\\Level_2.txt";
-
-        List<NumberColorPair> numberColorPairs = new ArrayList<>();
-
-        try (FileReader fileReader = new FileReader(filePath);
-             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-
-            bufferedReader.readLine();
-
-            String line2 = bufferedReader.readLine();
-            String[] numbers = line2.split(",");
-            int[] intNumbers = new int[numbers.length];
-            for (int i = 0; i < numbers.length; i++) {
-                intNumbers[i] = Integer.parseInt(numbers[i]);
-            }
-
-            // Read and parse line 3
-            String line3 = bufferedReader.readLine();
-            String[] colors = line3.split(",");
-
-            // Pair the numbers and colors together and add to the list
-            for (int i = 0; i < intNumbers.length && i < colors.length; i++) {
-                NumberColorPair pair = new NumberColorPair(intNumbers[i], colors[i]);
-                numberColorPairs.add(pair);
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        for (NumberColorPair pair : numberColorPairs) {
-            if(cells.get(pair.getNumber() - 1).getColor().equals(pair.getColor())){
-                allCorrect = true;
-            }
-            else{
-                allCorrect = false;
+        //need to finish working on this
+        for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
+            if(cell.getColor() != Color.black){
+                for(Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()){
+                    //i don't think the diamond detection is working
+                    if((diamond.getX() > cell.getX() && diamond.getX() < (cell.getX() + 35)) && (diamond.getY() > cell.getY() && diamond.getY() < (cell.getY()+35))){
+                        if(cell.getColor() != diamond.getColor()){
+                            return false;
+                        }
+                    } else{
+                        return false;
+                    }
+                }
             }
         }
-        System.out.println("Success, can move to next level");
-        return allCorrect;
+        return true;
     }
+
+//    public boolean compare(){
+//        //have to change this
+//        String filePath = "C:\\Users\\miona\\Desktop\\testing for spider\\src\\Level_2.txt";
+//
+//        List<NumberColorPair> numberColorPairs = new ArrayList<>();
+//
+//        try (FileReader fileReader = new FileReader(filePath);
+//             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+//
+//            bufferedReader.readLine();
+//
+//            String line2 = bufferedReader.readLine();
+//            String[] numbers = line2.split(",");
+//            int[] intNumbers = new int[numbers.length];
+//            for (int i = 0; i < numbers.length; i++) {
+//                intNumbers[i] = Integer.parseInt(numbers[i]);
+//            }
+//
+//            // Read and parse line 3
+//            String line3 = bufferedReader.readLine();
+//            String[] colors = line3.split(",");
+//
+//            // Pair the numbers and colors together and add to the list
+//            for (int i = 0; i < intNumbers.length && i < colors.length; i++) {
+//                NumberColorPair pair = new NumberColorPair(intNumbers[i], colors[i]);
+//                numberColorPairs.add(pair);
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        for (NumberColorPair pair : numberColorPairs) {
+//            if(cells.get(pair.getNumber() - 1).getColor().equals(pair.getColor())){
+//                allCorrect = true;
+//            }
+//            else{
+//                allCorrect = false;
+//            }
+//        }
+//        System.out.println("Success, can move to next level");
+//        return allCorrect;
+//    }
 
     public void play(){
         spiderPlayStart();
@@ -79,6 +98,10 @@ public class World {
                 run(temp);
                 temp = temp.next;
             }
+        }
+        Boolean b = compare();
+        if(b == false){
+            System.out.println("works");
         }
     }
 
