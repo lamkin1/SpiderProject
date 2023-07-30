@@ -1,3 +1,4 @@
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,7 +8,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class World {
-    private LevelHelper level = new LevelHelper();
     private ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
     private ArrayList<Block> blocks = DataSource.getInstance().getBlockArrayInstance();
     private boolean allCorrect = false;
@@ -70,6 +70,7 @@ public class World {
     }
 
     public void play(){
+        spiderPlayStart();
         DataSource.getInstance().getBlocksRunInstance().sort(Comparator.comparing(Block::getY1));
         for(Block block : DataSource.getInstance().getBlocksRunInstance()){
             run(block);
@@ -105,5 +106,73 @@ public class World {
 
     public Spider getSpider(){
         return spider;
+    }
+
+    public void spiderPlayStart(){
+        String d = spider.getDirection();
+        int level = DataSource.getInstance().getLevel();
+        spider.setspiderX(DataSource.getInstance().getOgSpiderLocation()[0]);
+        spider.setSpiderY(DataSource.getInstance().getOgSpiderLocation()[1]);
+        if(level == 1 || level == 2 || level == 3){
+            switch(d){
+                case "up":
+                    break;
+                case "down":
+                    spider.rotateImage(180);
+                    break;
+                case "right":
+                    spider.rotateImage(270);
+                    break;
+                case "left":
+                    spider.rotateImage(90);
+                    break;
+            }
+            spider.setDirection("up");
+        } else if(level == 4 || level == 5 || level == 9){
+            switch(d){
+                case "up":
+                    spider.rotateImage(180);
+                    break;
+                case "down":
+                    break;
+                case "right":
+                    spider.rotateImage(90);
+                    break;
+                case "left":
+                    spider.rotateImage(270);
+                    break;
+            }
+            spider.setDirection("down");
+        } else if(level == 6 || level == 7 || level == 8 || level == 10 || level == 11 || level == 13 || level == 14 || level == 15){
+            switch(d){
+                case "up":
+                    spider.rotateImage(90);
+                    break;
+                case "down":
+                    spider.rotateImage(270);
+                    break;
+                case "right":
+                    break;
+                case "left":
+                    spider.rotateImage(180);
+                    break;
+            }
+            spider.setDirection("right");
+        } else if(level == 12){
+            switch(d){
+                case "up":
+                    spider.rotateImage(270);
+                    break;
+                case "down":
+                    spider.rotateImage(90);
+                    break;
+                case "right":
+                    spider.rotateImage(180);
+                    break;
+                case "left":
+                    break;
+            }
+            spider.setDirection("left");
+        }
     }
 }

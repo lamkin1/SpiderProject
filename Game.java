@@ -280,7 +280,7 @@ public class Game extends JFrame implements ActionListener{
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("Reset")) {
-                DataSource.getInstance().clearArrays();
+                DataSource.getInstance().clearBlocks();
                 int level = DataSource.getInstance().getLevel();
                 lh.load(level);
                 setSpiderLoc();

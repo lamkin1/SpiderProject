@@ -28,13 +28,11 @@ public class WorldPanel extends JPanel implements ActionListener {
 
     }
 
-
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         world.draw(g);
         repaint();
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {

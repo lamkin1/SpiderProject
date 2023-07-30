@@ -95,5 +95,6 @@ public class LevelHelper {
         // draw spider
         int spiderCell = spiderSpawn;
         DataSource.getInstance().setSpiderLocation(x_default + 10 + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
+        DataSource.getInstance().setOgSpiderLocation(x_default + 10 + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
     }
 }
