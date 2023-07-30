@@ -94,12 +94,30 @@ public class World {
                 break;
             case "Paint Red":
                 System.out.println("paint red");
+                for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
+                    if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
+                        cell.setColor(Color.red);
+                        break;
+                    }
+                }
                 break;
             case "Paint Blue":
                 System.out.println("paint blue");
+                for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
+                    if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
+                        cell.setColor(Color.blue);
+                        break;
+                    }
+                }
                 break;
             case "Paint Green":
                 System.out.println("paint green");
+                for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
+                    if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
+                        cell.setColor(Color.green);
+                        break;
+                    }
+                }
                 break;
         }
     }

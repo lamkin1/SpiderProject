@@ -102,6 +102,9 @@ public class Spider {
         this.y = y;
     }
 
+    public int getSpiderX(){return this.x;}
+    public int getSpiderY(){return this.y;}
+
     public void setDirection(String s){
         this.direction = s;
     }
