@@ -14,6 +14,7 @@ public class LevelHelper {
     private int spiderSpawn;
     private List<Integer> diamondCellList;
     private List<String> diamondColorList;
+    private Spider spider;
     public LevelHelper(){
         diamondCellList = new ArrayList<Integer>();
         diamondColorList = new ArrayList<String>();
@@ -63,8 +64,9 @@ public class LevelHelper {
         int x_default = 200;
         x_default -= size*13;
         int x = x_default;
-        int y = 200;
-        y -= size*13;
+        int y_default = 200;
+        y_default -= size*13;
+        int y = y_default;
         ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
         int x_length = 35;
         int y_length = 35;
@@ -88,13 +90,14 @@ public class LevelHelper {
         for(int i = 0; i < diamondCellList.size(); i++) {
             cellNum = diamondCellList.get(i); //cell number
             color = colorMap.get(diamondColorList.get(i));
-            d = new Diamond(color,x_default + x_length * ((cellNum % size) - 1),x_default + (int) (y_length * (Math.floor(cellNum / size))));
+            System.out.println(x_default);
+            d = new Diamond(color,x_default + (x_length * (((cellNum % size)== 0) ? size-1 : ((cellNum % size) - 1))),y_default + (int) (y_length * ((Math.floor(cellNum % size) == 0) ? Math.floor(cellNum/size) - 1 : Math.floor(cellNum / size))));
             DataSource.getInstance().getDiamondArrayInstance().add(d);
         }
 
         // draw spider
         int spiderCell = spiderSpawn;
-        DataSource.getInstance().setSpiderLocation(x_default + 10 + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
-        DataSource.getInstance().setOgSpiderLocation(x_default + 10 + x_length * ((spiderCell % size) - 1),x_default + (int) (y_length * (Math.floor(spiderCell / size))));
+        DataSource.getInstance().setSpiderLocation(x_default + 10 + x_length * (((spiderCell % size)== 0) ? size-1 : ((spiderCell % size) - 1)),x_default + (int) (y_length * ((Math.floor(spiderCell % size) == 0) ? Math.floor(spiderCell/size) - 1 : Math.floor(spiderCell / size))));
+        DataSource.getInstance().setOgSpiderLocation(x_default + 10 + x_length * (((spiderCell % size)== 0) ? size-1 : ((spiderCell % size) - 1)),x_default + (int) (y_length * ((Math.floor(spiderCell % size) == 0) ? Math.floor(spiderCell/size) - 1 : Math.floor(spiderCell / size))));
     }
 }

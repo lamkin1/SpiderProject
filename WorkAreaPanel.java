@@ -16,7 +16,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
     int offsetX, offsetY;
 
-    private ActionBlock selectedActionBlock;
+    private Block selectedBlock;
 
     JPanel buttonPanel = new JPanel();
 
@@ -43,7 +43,10 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         paintGreen.setBackground(Color.GREEN);
         paintGreen.setOpaque(true);
         paintGreen.setBorderPainted(false);
-        loop = new BlockSpawner(450, 100, Color.ORANGE, "Loop");
+        loop = new BlockSpawner(450, 100, Color.MAGENTA, "Loop");
+        loop.setBackground(Color.MAGENTA);
+        loop.setOpaque(true);
+        loop.setBorderPainted(false);
 
         buttonPanel.add(step);
         buttonPanel.add(turn);
@@ -87,10 +90,11 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         y1 = e.getY();
 
         for(Block block: DataSource.getInstance().getBlockArrayInstance()){
-            if (block instanceof ActionBlock && (block.getX1() <= x1 && x1 <= block.getX1() + 30) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
-                selectedActionBlock = (ActionBlock) block;
-                offsetX = x1 - selectedActionBlock.getX1();
-                offsetY = y1 - selectedActionBlock.getY1();
+            if (((block instanceof ActionBlock) || (block instanceof LoopBlockDecorator))&& (block.getX1() <= x1 && x1 <= block.getX1() + 30) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
+                if(block.getName() == "Loop Block"){selectedBlock = (LoopBlockDecorator) block;}
+                else{selectedBlock = (ActionBlock) block;}
+                offsetX = x1 - selectedBlock.getX1();
+                offsetY = y1 - selectedBlock.getY1();
                 break;
             }
         }
@@ -104,20 +108,20 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         int x_diff = x2 - offsetX;
         int y_diff = y2 - offsetY;
 
-        if (selectedActionBlock != null){
-            int blockLength = selectedActionBlock.getX_len();
-            int blockHeight = selectedActionBlock.getY_len();
+        if (selectedBlock != null){
+            int blockLength = selectedBlock.getX_len();
+            int blockHeight = selectedBlock.getY_len();
             if ((x_diff > 40 || x_diff + blockLength < 60) && (y_diff > 435 || y_diff + blockHeight < 495)){
-                trashCan.delete(selectedActionBlock);
+                trashCan.delete(selectedBlock);
             }
 
-            selectedActionBlock.moving(x_diff, y_diff);
+            selectedBlock.moving(x_diff, y_diff);
 
-            Block temp = selectedActionBlock.next;
-            int shift_y = selectedActionBlock.getY_len();
+            Block temp = selectedBlock.next;
+            int shift_y = selectedBlock.getY_len();
             while(temp != null){
                 temp.moving(x_diff, y_diff + shift_y);
-                shift_y += selectedActionBlock.getY_len();
+                shift_y += selectedBlock.getY_len();
                 temp = temp.next;
             }
         }
@@ -131,10 +135,10 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (selectedActionBlock != null){
-            selectedActionBlock.connect();
+        if (selectedBlock != null){
+            selectedBlock.connect();
             repaint();
-            selectedActionBlock = null;
+            selectedBlock = null;
         }
     }
 
@@ -194,9 +198,9 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
             if (((JButton) e.getSource()).getText().equals("Loop")) {
                 System.out.println("making paint block");
-                ActionBlock ab = new ActionBlock(375, 425, "Loop");
-                DataSource.getInstance().getBlockArrayInstance().add(ab);
-                DataSource.getInstance().getBlocksRunInstance().add(ab);
+                LoopBlockDecorator b = new LoopBlockDecorator(375, 425);
+                DataSource.getInstance().getBlockArrayInstance().add(b);
+                DataSource.getInstance().getBlocksRunInstance().add(b);
                 repaint();
             }
         }

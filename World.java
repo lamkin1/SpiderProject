@@ -82,18 +82,20 @@ public class World {
         }
     }
 
-    public void run(Block b){
-        switch(((ActionBlock) b).getName()){
+    public boolean run(Block b){
+        Boolean returned = false;
+        switch( b.getName()){
+
             case "Step":
-                System.out.println("step");
-                spider.move();
-                break;
+                //System.out.println("step");
+                returned = spider.move();
+                return returned;
             case "Turn":
-                System.out.println("turn");
+                //System.out.println("turn");
                 spider.turn();
                 break;
             case "Paint Red":
-                System.out.println("paint red");
+                //System.out.println("paint red");
                 for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
                     if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
                         cell.setColor(Color.red);
@@ -102,7 +104,7 @@ public class World {
                 }
                 break;
             case "Paint Blue":
-                System.out.println("paint blue");
+                //System.out.println("paint blue");
                 for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
                     if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
                         cell.setColor(Color.blue);
@@ -111,7 +113,7 @@ public class World {
                 }
                 break;
             case "Paint Green":
-                System.out.println("paint green");
+                //System.out.println("paint green");
                 for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
                     if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
                         cell.setColor(Color.green);
@@ -119,7 +121,22 @@ public class World {
                     }
                 }
                 break;
+            case "Loop Block":
+                System.out.println("looping");
+                Block block = ((LoopBlockDecorator)b).decoratedBlock;
+                if(block == null){break;}
+                Block temp = block;
+                while(returned == false) {
+                    //System.out.println(temp.getName());
+                    returned = run(temp);
+                    temp = temp.next;
+                    if(temp == null){
+                        temp = block;
+                    }
+                }
+                break;
         }
+        return false;
     }
 
     public Spider getSpider(){

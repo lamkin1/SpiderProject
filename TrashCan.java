@@ -15,13 +15,13 @@ public class TrashCan extends JPanel {
         g.fillRect(this.x, this.y-15, 40, 10 );
     }
 
-    public void delete(ActionBlock ab){
+    public void delete(Block b){
         Rectangle trashcan = new Rectangle(x+30, y, 40, 45);
-        Rectangle block = new Rectangle(ab.getX1(), ab.getY1(), ab.getX2()-ab.getX1(), ab.getY2()-ab.getY1());
+        Rectangle block = new Rectangle(b.getX1(), b.getY1(), b.getX2()-b.getX1(), b.getY2()-b.getY1());
 
         if(trashcan.intersects(block)){
-            DataSource.getInstance().getBlockArrayInstance().remove(ab);
-            DataSource.getInstance().getBlocksRunInstance().remove(ab);
+            DataSource.getInstance().getBlockArrayInstance().remove(b);
+            DataSource.getInstance().getBlocksRunInstance().remove(b);
         }
     }
 }

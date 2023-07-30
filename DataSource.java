@@ -23,6 +23,8 @@ public class DataSource{
     public void setSpiderLocation(int x, int y){
         SpiderLocation[0] = x;
         SpiderLocation[1] = y;
+
+
     }
 
     public int[] getSpiderLocation(){

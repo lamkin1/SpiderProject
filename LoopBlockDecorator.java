@@ -1,66 +1,54 @@
-import javax.swing.*;
-import javax.xml.crypto.Data;
 import java.awt.*;
 
-public class ActionBlock extends Block{
+public class LoopBlockDecorator extends Block{
+    protected Block decoratedBlock;
     private int x_len = 30, y_len = 15;
 
-
-
-    public ActionBlock(int x1, int y1, String action){
+    public LoopBlockDecorator(Block decoratedBlock,int x1, int y1){
+        this.decoratedBlock = decoratedBlock;
+        super.setName("Loop Block");
         super.setX1(x1);
         super.setX2(x1 + x_len);
         super.setY1(y1);
         super.setY2(y1 + y_len);
-        switch(action){
-            case "Step":    super.setName("Step");
-                super.setColor(Color.GRAY);
-                            break;
-            case "Turn":    super.setName("Turn");
-                            super.setColor(Color.GRAY);
-                            break;
-            case "Paint Red":   super.setName("Paint Red");
-                            super.setColor(Color.RED);
-                            break;
-            case "Paint Blue":  super.setName("Paint Blue");
-                super.setColor(Color.BLUE);
-                            break;
-            case "Paint Green":   super.setName("Paint Green");
-                super.setColor(Color.GREEN);
-                            break;
-        }
+        super.setColor(Color.MAGENTA);
     }
 
-
+    public LoopBlockDecorator(int x1, int y1){
+        super.setName("Loop Block");
+        super.setX1(x1);
+        super.setX2(x1 + x_len);
+        super.setY1(y1);
+        super.setY2(y1 + y_len);
+        super.setColor(Color.MAGENTA);
+    }
 
     public void draw(Graphics g){
         g.setColor(super.getColor());
         g.fillRect(super.getX1(), super.getY1(), x_len, y_len);
     }
 
+    public void add(Block b){
+        decoratedBlock = b;
+    }
+
     public void connect(){
         int x_avg = (super.getX1()+super.getX2())/2;
         Block temp, temp2, transfer;
-        boolean first, reconnecting = false, connectingToLoopBlock = false;
+        boolean first, reconnecting = false;
         if(DataSource.getInstance().getBlocksRunInstance().contains(this)){first = true;}else{first = false;}
         for(int i = 0; i < DataSource.getInstance().getBlockArrayInstance().size(); i++){
             temp = DataSource.getInstance().getBlockArrayInstance().get(i);
             if(this == temp){continue;}
             do{
-
                 if((this.getY1() >= temp.getY2() - 5 && super.getY1() <= temp.getY2() + 5) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
+                    //System.out.println("hit");
                     DataSource.getInstance().getBlocksRunInstance().remove(this);
-                    if(temp.getName() == "Loop Block"){
-                        ((LoopBlockDecorator)temp).add(this);
-                        connectingToLoopBlock = true;
-                    }
                     this.setY1(temp.getY2());
                     this.setX1(temp.getX1());
                     this.setX2(temp.getX2());
                     this.setY2(this.getY1()+y_len);
-                    System.out.println(connectingToLoopBlock);
-                    Block shift_temp;
-                    shift_temp = this.next;
+                    Block shift_temp = this.decoratedBlock;
                     int y_temp = this.getY1() + y_len;
                     while(shift_temp != null){
                         shift_temp.setY1(y_temp);
@@ -85,7 +73,6 @@ public class ActionBlock extends Block{
                                 temp2 = temp2.next;
                             }
                         } while (temp2 != null);
-
                     }else{reconnecting = true;}
                     if(DataSource.getInstance().getBlocksRunInstance().contains(this)){
                         first = true;
@@ -97,10 +84,11 @@ public class ActionBlock extends Block{
         }
         //SORT blocks array by y value
         if(!first && !reconnecting){
-            if(prev.getName() == "Loop Block"){((LoopBlockDecorator)prev).decoratedBlock = null;}
-            else{ prev.next = null;}
+            System.out.println("hit");
+            prev.next = null;
             prev = null;
             DataSource.getInstance().getBlocksRunInstance().add(this);
         }
     }
+
 }

@@ -6,16 +6,51 @@ import java.util.ArrayList;
 public abstract class Block{
     Block next = null;
     Block prev = null;
+    private int x_len = 30, y_len = 15;
+    private String name;
+    private Color color;
     private int x1, y1, x2, y2;
 
+    public String getName(){
+        return this.name;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+    public void setX_len(int x_len) {
+        this.x_len = x_len;
+    }
+
+    public void setY_len(int y_len) {
+        this.y_len = y_len;
+    }
+
+    public int getX_len() {
+        return x_len;
+    }
+
+    public int getY_len() {
+        return y_len;
+    }
 
     public abstract void draw(Graphics g);
+
+    public abstract void connect();
 
     public void moving(int x_diff, int y_diff){
         setX1(x_diff);
         setX2(x_diff + 30);
         setY1(y_diff);
         setY2(y_diff + 15);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
 
