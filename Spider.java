@@ -27,23 +27,28 @@ public class Spider {
         }
     }
 
-    public Boolean move(){
+    public void move(){
+        Boolean b = false;
         switch(this.direction){
             case "up":
                 this.y -= 35;
-                return limitSpider();
+                //b = limitSpider();
+                break;
             case "down":
                 this.y += 35;
-                return limitSpider();
+                //b = limitSpider();
+                break;
             case "left":
                 this.x -= 35;
-                return limitSpider();
+                //b = limitSpider();
+                break;
             case "right":
                 this.x += 35;
-                return limitSpider();
+                //b = limitSpider();
+                break;
         }
         DataSource.getInstance().setSpiderLocation(this.x, this.y);
-        return false;
+        //return b;
     }
 
     public void turn(){
