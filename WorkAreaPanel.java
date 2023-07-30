@@ -64,6 +64,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         this.add(buttonPanel, BorderLayout.EAST);
 
         trashCan = new TrashCan(40, 450);
+
     }
 
     public void paintComponent(Graphics g) {

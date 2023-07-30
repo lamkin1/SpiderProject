@@ -177,56 +177,48 @@ public class Game extends JFrame implements ActionListener{
                 DataSource.getInstance().setLevel(1);
                 lh.load(1);
                 setSpiderLoc();
-                checkRotate(1);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("2")) {
                 DataSource.getInstance().setLevel(2);
                 lh.load(2);
                 setSpiderLoc();
-                checkRotate(2);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("3")) {
                 DataSource.getInstance().setLevel(3);
                 lh.load(3);
                 setSpiderLoc();
-                checkRotate(3);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("4")) {
                 DataSource.getInstance().setLevel(4);
                 lh.load(4);
                 setSpiderLoc();
-                checkRotate(4);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("5")) {
                 DataSource.getInstance().setLevel(5);
                 lh.load(5);
                 setSpiderLoc();
-                checkRotate(5);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("6")) {
                 DataSource.getInstance().setLevel(6);
                 lh.load(6);
                 setSpiderLoc();
-                checkRotate(6);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("7")) {
                 DataSource.getInstance().setLevel(7);
                 lh.load(7);
                 setSpiderLoc();
-                checkRotate(7);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("8")) {
                 DataSource.getInstance().setLevel(8);
                 lh.load(8);
                 setSpiderLoc();
-                checkRotate(8);
                 worldPanel.repaint();
                 showPopup("This level introduces loops! The repeat block contains other blocks. \nThe blocks stacked inside the repeat block will be performed over and over until the spider is at the wall. \nAnother way of describing it is that the nested blocks will be performed as many times as necessary for the spider to reach the wall. ");
             }
@@ -234,49 +226,42 @@ public class Game extends JFrame implements ActionListener{
                 DataSource.getInstance().setLevel(9);
                 lh.load(9);
                 setSpiderLoc();
-                checkRotate(9);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("10")) {
                 DataSource.getInstance().setLevel(10);
                 lh.load(10);
                 setSpiderLoc();
-                checkRotate(10);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("11")) {
                 DataSource.getInstance().setLevel(11);
                 lh.load(11);
                 setSpiderLoc();
-                checkRotate(11);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("12")) {
                 DataSource.getInstance().setLevel(12);
                 lh.load(12);
                 setSpiderLoc();
-                checkRotate(12);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("13")) {
                 DataSource.getInstance().setLevel(12);
                 lh.load(13);
                 setSpiderLoc();
-                checkRotate(13);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("14")) {
                 DataSource.getInstance().setLevel(14);
                 lh.load(14);
                 setSpiderLoc();
-                checkRotate(14);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("15")) {
                 DataSource.getInstance().setLevel(15);
                 lh.load(15);
                 setSpiderLoc();
-                checkRotate(15);
                 worldPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("Reset")) {
@@ -284,78 +269,12 @@ public class Game extends JFrame implements ActionListener{
                 int level = DataSource.getInstance().getLevel();
                 lh.load(level);
                 setSpiderLoc();
-                checkRotate(level);
                 worldPanel.repaint();
                 workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("Directions")) {
                 showPopup("Use the blocks to make the spider move!\nSet the sequence of blocks up in the way you want the spider to move\n The spider has the following behaviors: step forward, turn, and paint the cell a certain color.\nColor the cells based off of the diamond's color is present.\n\nIf you are in level 8, then you have loops!\nUse the loop structure to minimize the amount of blocks you have.\n The purpose of loops is to perform a certain action a certain number of times without having to use repeated blocks.");
             }
-        }
-    }
-
-    private void checkRotate(int level){
-        String d = spider.getDirection();
-        if(level == 1 || level == 2 || level == 3){
-            switch(d){
-                case "up":
-                    break;
-                case "down":
-                    spider.rotateImage(180);
-                    break;
-                case "right":
-                    spider.rotateImage(270);
-                    break;
-                case "left":
-                    spider.rotateImage(90);
-                    break;
-            }
-            spider.setDirection("up");
-        } else if(level == 4 || level == 5 || level == 9){
-            switch(d){
-                case "up":
-                    spider.rotateImage(180);
-                    break;
-                case "down":
-                    break;
-                case "right":
-                    spider.rotateImage(90);
-                    break;
-                case "left":
-                    spider.rotateImage(270);
-                    break;
-            }
-            spider.setDirection("down");
-        } else if(level == 6 || level == 7 || level == 8 || level == 10 || level == 11 || level == 13 || level == 14 || level == 15){
-            switch(d){
-                case "up":
-                    spider.rotateImage(90);
-                    break;
-                case "down":
-                    spider.rotateImage(270);
-                    break;
-                case "right":
-                    break;
-                case "left":
-                    spider.rotateImage(180);
-                    break;
-            }
-            spider.setDirection("right");
-        } else if(level == 12){
-            switch(d){
-                case "up":
-                    spider.rotateImage(270);
-                    break;
-                case "down":
-                    spider.rotateImage(90);
-                    break;
-                case "right":
-                    spider.rotateImage(180);
-                    break;
-                case "left":
-                    break;
-            }
-            spider.setDirection("left");
         }
     }
 }

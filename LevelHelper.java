@@ -24,6 +24,7 @@ public class LevelHelper {
     //Line 2: List of cells that diamonds will be in, currently indexing starting at 1, going left to right, up to down
     //line 3: List of colors for the diamonds in the previous line
     //Line 4: Spider spawn cell
+
     public void load(int level){
         this.level = level;
         diamondCellList.clear(); // wasnt sure if we were using this list or the diamond list in datasource
