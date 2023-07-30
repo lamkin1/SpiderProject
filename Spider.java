@@ -13,7 +13,7 @@ public class Spider {
     private int limitBottom;
     private int limitRight;
     private int limitLeft;
-    private String direction;
+    private String direction = "up";
     private BufferedImage spiderImage;
 
     public Spider(int x, int y, String direction){
@@ -90,6 +90,14 @@ public class Spider {
 
     public void setSpiderY(int y){
         this.y = y;
+    }
+
+    public void setDirection(String s){
+        this.direction = s;
+    }
+
+    public String getDirection(){
+        return this.direction;
     }
 
     public void setLimits(int right, int left, int bottom, int top){
