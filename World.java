@@ -21,7 +21,6 @@ public class World {
         for(Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()){
             diamond.draw(g);
         }
-
         spider.draw(g);
     }
 

@@ -36,6 +36,8 @@ public class ActionBlock extends Block{
     public void draw(Graphics g){
         g.setColor(super.getColor());
         g.fillRect(super.getX1(), super.getY1(), x_len, y_len);
+        g.setColor(Color.BLACK);
+        g.drawString(super.getName(), super.getX1(), super.getY1() + 10);
     }
 
     public void connect(){
