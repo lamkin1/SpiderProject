@@ -40,6 +40,11 @@ public class WorldPanel extends JPanel implements ActionListener {
             if (((JButton) e.getSource()).getText().equals("Play")) {
                 System.out.println("selected play");
                 world.play();
+                Boolean res = world.compare();
+                if (world.getAllCorrect()){
+                    LevelHelper lh = new LevelHelper();
+                    lh.load(DataSource.getInstance().getLevel() + 1);
+                }
             }
         }
     }

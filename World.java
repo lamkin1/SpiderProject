@@ -22,6 +22,7 @@ public class World {
             diamond.draw(g);
         }
         spider.draw(g);
+
     }
 
     public boolean compare(){
@@ -30,17 +31,28 @@ public class World {
             if(cell.getColor() != Color.black){
                 for(Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()){
                     //i don't think the diamond detection is working
-                    if((diamond.getX() > cell.getX() && diamond.getX() < (cell.getX() + 35)) && (diamond.getY() > cell.getY() && diamond.getY() < (cell.getY()+35))){
+                    System.out.println("diamond x: " + diamond.getX());
+                    System.out.println("cell x: " + cell.getX());
+                    System.out.println("diamond y: " + diamond.getY());
+                    System.out.println("cell y: " + cell.getY());
+                    if((diamond.getX() >= cell.getX() && diamond.getX() <= (cell.getX() + 35)) && (diamond.getY() >= cell.getY() && diamond.getY() <= (cell.getY()+35))){
+
                         if(cell.getColor() != diamond.getColor()){
+                            System.out.println("diamond color does not match");
                             return false;
                         }
                     } else{
+                        // hitting this statement everytime
+                        System.out.println("diamond not in cell");
                         return false;
                     }
                 }
             }
         }
+        System.out.println("true hit");
+        allCorrect = true;
         return true;
+
     }
 
 //    public boolean compare(){
@@ -233,4 +245,9 @@ public class World {
             spider.setDirection("left");
         }
     }
+
+    public Boolean getAllCorrect(){
+        return allCorrect;
+    }
+
 }

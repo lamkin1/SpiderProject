@@ -1,6 +1,7 @@
 import java.awt.*;
 public class Diamond{
     private Color color;
+    private Boolean hasDiamond;
     int x, y;
     public Diamond(Color color, int x, int y){
         this.color = color;
@@ -24,7 +25,6 @@ public class Diamond{
 
         // Draw the diamond using two filled triangles
         g.fillPolygon(xPoints, yPoints, 4);
-
 
     }
 
@@ -51,5 +51,14 @@ public class Diamond{
     public void setY(int y) {
         this.y = y;
     }
+
+    public void setHasDiamond(Boolean hasDiamond) {
+        this.hasDiamond = hasDiamond;
+    }
+
+    public Boolean getHasDiamond(){
+        return this.hasDiamond;
+    }
+
 }
 
