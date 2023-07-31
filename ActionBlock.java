@@ -3,7 +3,7 @@ import javax.xml.crypto.Data;
 import java.awt.*;
 
 public class ActionBlock extends Block{
-    private int x_len = 30, y_len = 15;
+    private int x_len = 70, y_len = 15;
 
 
 

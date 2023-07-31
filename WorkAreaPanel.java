@@ -90,7 +90,7 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         y1 = e.getY();
 
         for(Block block: DataSource.getInstance().getBlockArrayInstance()){
-            if (((block instanceof ActionBlock) || (block instanceof LoopBlockDecorator))&& (block.getX1() <= x1 && x1 <= block.getX1() + 30) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
+            if (((block instanceof ActionBlock) || (block instanceof LoopBlockDecorator))&& (block.getX1() <= x1 && x1 <= block.getX1() + 70) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
                 if(block.getName() == "Loop Block"){selectedBlock = (LoopBlockDecorator) block;}
                 else{selectedBlock = (ActionBlock) block;}
                 offsetX = x1 - selectedBlock.getX1();

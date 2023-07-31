@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class LoopBlockDecorator extends Block{
     protected Block decoratedBlock;
-    private int x_len = 30, y_len = 15;
+    private int x_len = 70, y_len = 15;
 
     public LoopBlockDecorator(Block decoratedBlock,int x1, int y1){
         this.decoratedBlock = decoratedBlock;

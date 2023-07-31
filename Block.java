@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public abstract class Block{
     Block next = null;
     Block prev = null;
-    private int x_len = 30, y_len = 15;
+    private int x_len = 70, y_len = 15;
     private String name;
     private Color color;
     private int x1, y1, x2, y2;
@@ -40,9 +40,9 @@ public abstract class Block{
 
     public void moving(int x_diff, int y_diff){
         setX1(x_diff);
-        setX2(x_diff + 30);
+        setX2(x_diff + x_len);
         setY1(y_diff);
-        setY2(y_diff + 15);
+        setY2(y_diff + y_len);
     }
 
     public void setName(String name) {

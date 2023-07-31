@@ -28,8 +28,10 @@ public class Spider {
         limitTop = c1.getY();
         limitLeft = c1.getX();
         int size = DataSource.getInstance().getCellArrayInstance().size();
-        limitBottom = c1.getY() + size*35;
-        limitRight = c1.getX() + size*35;
+        limitBottom = c1.getY() + (int)Math.sqrt(size)*35;
+        limitRight = c1.getX() + (int)Math.sqrt(size)*35;
+        System.out.println(c1.getX());
+        System.out.println(size);
     }
 
     public Boolean move(){
@@ -53,6 +55,7 @@ public class Spider {
                 break;
         }
         DataSource.getInstance().setSpiderLocation(this.x, this.y);
+        System.out.println("Spider X: " + this.x + ", Spider Y: " + this.y);
         return b;
     }
 
@@ -114,16 +117,16 @@ public class Spider {
     }
 
     public Boolean limitSpider(){
-        if(this.x > this.limitRight){
-            this.x = this.limitRight;
+        if(this.x >= this.limitRight){
+            this.x = this.limitRight - 25;
             return true;
         }
-        if(this.x < this.limitLeft){
-            this.x = this.limitLeft;
+        if(this.x <= this.limitLeft){
+            this.x = this.limitLeft + 10;
             return true;
         }
-        if(this.y > this.limitBottom){
-            this.y = this.limitBottom;
+        if(this.y >= this.limitBottom){
+            this.y = this.limitBottom - 35;
             return true;
         }
         if(this.y < this.limitTop){

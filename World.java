@@ -147,9 +147,10 @@ public class World {
                 System.out.println("looping");
                 Block block = ((LoopBlockDecorator)b).decoratedBlock;
                 if(block == null){break;}
+                returned = false;
                 Block temp = block;
                 while(returned == false) {
-                    //System.out.println(temp.getName());
+                    System.out.println(temp.getName());
                     returned = run(temp);
                     temp = temp.next;
                     if(temp == null){
