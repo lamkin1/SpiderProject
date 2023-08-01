@@ -29,20 +29,24 @@ public class World {
         //need to finish working on this
         for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
             if(cell.getColor() != Color.black){
+                System.out.println("\nColored Cell Here");
                 for(Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()){
                     //i don't think the diamond detection is working
+
                     System.out.println("diamond x: " + diamond.getX());
                     System.out.println("cell x: " + cell.getX());
                     System.out.println("diamond y: " + diamond.getY());
                     System.out.println("cell y: " + cell.getY());
                     if((diamond.getX() >= cell.getX() && diamond.getX() <= (cell.getX() + 35)) && (diamond.getY() >= cell.getY() && diamond.getY() <= (cell.getY()+35))){
-
-                        if(cell.getColor() != diamond.getColor()){
-                            System.out.println("diamond color does not match");
+                        System.out.println("Diamond here");
+                        if(cell.getColor() == diamond.getColor()){
+                            System.out.println("diamond color match");
+                            break;
+                        }
+                        else{
                             return false;
                         }
                     } else{
-                        // hitting this statement everytime
                         System.out.println("diamond not in cell");
                         return false;
                     }
