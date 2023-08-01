@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 public class WorldPanel extends JPanel implements ActionListener {
     World world = new World();
-
+    Boolean success = false;
     private JButton play;
 
     //ConnectHelper connectHelper = new ConnectHelper();
@@ -45,11 +45,12 @@ public class WorldPanel extends JPanel implements ActionListener {
                 world.play();
                 Boolean res = world.compare();
                 if (res){
-
-//                    LevelHelper lh = new LevelHelper();
-//                    lh.load(DataSource.getInstance().getLevel() + 1);
+                    showSuccessPopup();
                 }
             }
         }
+    }
+    public void showSuccessPopup() {
+        JOptionPane.showMessageDialog(this, "Congratulations! You may now move onto the next level!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }

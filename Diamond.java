@@ -1,31 +1,17 @@
 import java.awt.*;
 public class Diamond{
     private Color color;
-    private Boolean hasDiamond;
+    private Boolean hasDiamond = false;
     int x, y;
     public Diamond(Color color, int x, int y){
         this.color = color;
-        this.x = x;
-        this.y = y;
+        this.x = x+15;
+        this.y = y+15;
     }
 
     public void draw(Graphics g){
-        //g.setColor(color);
-        //g.fillRect(x,y,10,10);
-
-        int size = 5;
-        int centerX = x + 17;
-        int centerY = y + 17;
-
-        int[] xPoints = {centerX, centerX + size, centerX, centerX - size};
-        int[] yPoints = {centerY - size, centerY, centerY + size, centerY};
-
-        // Set the color you want to use for drawing the diamond
         g.setColor(color);
-
-        // Draw the diamond using two filled triangles
-        g.fillPolygon(xPoints, yPoints, 4);
-
+        g.fillRect(x,y,5,5);
     }
 
     public Color getColor() {

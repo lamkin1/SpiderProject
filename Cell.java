@@ -4,7 +4,7 @@ public class Cell {
     private int x, y;
 
     private Color color = Color.black;
-    private Boolean hasDiamond;
+    private Boolean hasDiamond = false;
     private Color diamondColor;
 
     public Cell(int x, int y){
