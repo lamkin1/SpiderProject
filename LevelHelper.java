@@ -103,11 +103,9 @@ public class LevelHelper {
         //setting cells for having diamonds or not
         for(Cell cell : DataSource.getInstance().getCellArrayInstance()) {
             for (Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()) {
-                if(diamond.getX() > cell.getX() && diamond.getX() < (cell.getX() + 35)){
-                    System.out.println("Hi");
-                    if((diamond.getY() > cell.getY()) && (diamond.getY() < (cell.getY() + 35))){
-                        System.out.println("cell gets diamond");
-                    }
+                if((diamond.getX() > cell.getX() && diamond.getX() < (cell.getX() + 35)) && ((diamond.getY() > cell.getY()) && (diamond.getY() < (cell.getY() + 35)))){
+                    cell.setHasDiamond(true);
+                    cell.setDiamondColor(diamond.getColor());
                 }
             }
         }
