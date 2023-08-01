@@ -56,6 +56,7 @@ public class LoopBlockDecorator extends Block{
                         shift_temp.setY1(y_temp);
                         shift_temp.setX1(temp.getX1());
                         y_temp += y_len;
+                        shift_temp = shift_temp.next;
                     }
 
                     if(temp.next != this) {

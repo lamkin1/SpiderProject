@@ -60,16 +60,6 @@ public class ActionBlock extends Block{
                     this.setX1(temp.getX1());
                     this.setX2(temp.getX2());
                     this.setY2(this.getY1()+y_len);
-                    System.out.println(connectingToLoopBlock);
-                    Block shift_temp;
-                    shift_temp = this.next;
-                    int y_temp = this.getY1() + y_len;
-                    while(shift_temp != null){
-                        shift_temp.setY1(y_temp);
-                        shift_temp.setX1(temp.getX1());
-                        y_temp += y_len;
-                    }
-
                     if(temp.next != this) {
                         Block anchor;
                         anchor = this;
@@ -89,6 +79,17 @@ public class ActionBlock extends Block{
                         } while (temp2 != null);
 
                     }else{reconnecting = true;}
+                    Block shift_temp;
+                    shift_temp = this.next;
+                    int y_temp = this.getY1() + y_len;
+                    while(shift_temp != null){
+                        shift_temp.setY1(y_temp);
+                        shift_temp.setX1(temp.getX1());
+                        y_temp += y_len;
+                        shift_temp = shift_temp.next;
+                    }
+
+
                     if(DataSource.getInstance().getBlocksRunInstance().contains(this)){
                         first = true;
                     }
