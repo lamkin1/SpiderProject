@@ -38,6 +38,9 @@ public class WorldPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
             if (((JButton) e.getSource()).getText().equals("Play")) {
+                for(Cell cell: DataSource.getInstance().getCellArrayInstance()){
+                    cell.setColor(Color.BLACK);
+                }
                 System.out.println("selected play");
                 world.play();
                 Boolean res = world.compare();

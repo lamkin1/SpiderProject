@@ -100,9 +100,15 @@ public class ActionBlock extends Block{
         }
         //SORT blocks array by y value
         if(!first && !reconnecting){
-            if(prev.getName() == "Loop Block"){((LoopBlockDecorator)prev).decoratedBlock = null;}
-            else{ prev.next = null;}
-            prev = null;
+            System.out.println("HITTT");
+            if(prev != null) {
+                if (prev.getName() == "Loop Block") {
+                    ((LoopBlockDecorator) prev).decoratedBlock = null;
+                } else {
+                    prev.next = null;
+                }
+                prev = null;
+            }
             DataSource.getInstance().getBlocksRunInstance().add(this);
         }
     }
