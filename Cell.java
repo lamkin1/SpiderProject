@@ -4,6 +4,8 @@ public class Cell {
     private int x, y;
 
     private Color color = Color.black;
+    private Boolean hasDiamond;
+    private Color diamondColor;
 
     public Cell(int x, int y){
         this.x = x;
@@ -37,5 +39,21 @@ public class Cell {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public void setHasDiamond(Boolean hasDiamond) {
+        this.hasDiamond = hasDiamond;
+    }
+
+    public Boolean getHasDiamond() {
+        return hasDiamond;
+    }
+
+    public Color getDiamondColor() {
+        return diamondColor;
+    }
+
+    public void setDiamondColor(Color diamondColor) {
+        this.diamondColor = diamondColor;
     }
 }
