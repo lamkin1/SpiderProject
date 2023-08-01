@@ -1,7 +1,7 @@
 import java.awt.*;
 public class Diamond{
     private Color color;
-    private Boolean hasDiamond;
+    private Boolean hasDiamond = false;
     int x, y;
     public Diamond(Color color, int x, int y){
         this.color = color;
