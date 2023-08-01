@@ -8,9 +8,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class World {
-    private ArrayList<Cell> cells = DataSource.getInstance().getCellArrayInstance();
-    private ArrayList<Block> blocks = DataSource.getInstance().getBlockArrayInstance();
-    private boolean allCorrect = false;
     private Spider spider = new Spider(DataSource.getInstance().getSpiderLocation()[0],DataSource.getInstance().getSpiderLocation()[1],"up");
 
     public void draw(Graphics g){
@@ -26,7 +23,6 @@ public class World {
     }
 
     public boolean compare(){
-        //need to finish working on this
         for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
             if(cell.getHasDiamond()){
                 if(cell.getColor() != cell.getDiamondColor()){
@@ -34,55 +30,9 @@ public class World {
                 }
             }
         }
-        System.out.println("true hit");
-        allCorrect = true;
         return true;
 
     }
-
-//    public boolean compare(){
-//        //have to change this
-//        String filePath = "C:\\Users\\miona\\Desktop\\testing for spider\\src\\Level_2.txt";
-//
-//        List<NumberColorPair> numberColorPairs = new ArrayList<>();
-//
-//        try (FileReader fileReader = new FileReader(filePath);
-//             BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-//
-//            bufferedReader.readLine();
-//
-//            String line2 = bufferedReader.readLine();
-//            String[] numbers = line2.split(",");
-//            int[] intNumbers = new int[numbers.length];
-//            for (int i = 0; i < numbers.length; i++) {
-//                intNumbers[i] = Integer.parseInt(numbers[i]);
-//            }
-//
-//            // Read and parse line 3
-//            String line3 = bufferedReader.readLine();
-//            String[] colors = line3.split(",");
-//
-//            // Pair the numbers and colors together and add to the list
-//            for (int i = 0; i < intNumbers.length && i < colors.length; i++) {
-//                NumberColorPair pair = new NumberColorPair(intNumbers[i], colors[i]);
-//                numberColorPairs.add(pair);
-//            }
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        for (NumberColorPair pair : numberColorPairs) {
-//            if(cells.get(pair.getNumber() - 1).getColor().equals(pair.getColor())){
-//                allCorrect = true;
-//            }
-//            else{
-//                allCorrect = false;
-//            }
-//        }
-//        System.out.println("Success, can move to next level");
-//        return allCorrect;
-//    }
 
     public void play(){
         spiderPlayStart();
@@ -97,7 +47,6 @@ public class World {
         }
         Boolean b = compare();
         if(b == false){
-            System.out.println("works");
         }
     }
 
@@ -106,15 +55,12 @@ public class World {
         switch( b.getName()){
 
             case "Step":
-                //System.out.println("step");
                 returned = spider.move();
                 return returned;
             case "Turn":
-                //System.out.println("turn");
                 spider.turn();
                 break;
             case "Paint Red":
-                //System.out.println("paint red");
                 for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
                     if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
                         cell.setColor(Color.red);
@@ -123,7 +69,6 @@ public class World {
                 }
                 break;
             case "Paint Blue":
-                //System.out.println("paint blue");
                 for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
                     if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
                         cell.setColor(Color.blue);
@@ -132,7 +77,6 @@ public class World {
                 }
                 break;
             case "Paint Green":
-                //System.out.println("paint green");
                 for(Cell cell : DataSource.getInstance().getCellArrayInstance()){
                     if(cell.getX() == (spider.getSpiderX()-10) && cell.getY() == spider.getSpiderY()){
                         cell.setColor(Color.green);
@@ -141,7 +85,6 @@ public class World {
                 }
                 break;
             case "Loop Block":
-                System.out.println("looping");
                 Block block = ((LoopBlockDecorator)b).decoratedBlock;
                 if(block == null){break;}
                 returned = false;
@@ -230,9 +173,4 @@ public class World {
             spider.setDirection("left");
         }
     }
-
-    public Boolean getAllCorrect(){
-        return allCorrect;
-    }
-
 }

@@ -30,21 +30,6 @@ public class Diamond{
         this.color = color;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setHasDiamond(Boolean hasDiamond) {
-        this.hasDiamond = hasDiamond;
-    }
-
-    public Boolean getHasDiamond(){
-        return this.hasDiamond;
-    }
 
 }
 

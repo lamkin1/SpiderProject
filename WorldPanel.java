@@ -8,10 +8,7 @@ import java.util.Comparator;
 
 public class WorldPanel extends JPanel implements ActionListener {
     World world = new World();
-    Boolean success = false;
     private JButton play;
-
-    //ConnectHelper connectHelper = new ConnectHelper();
     public WorldPanel() {
         this.setPreferredSize(new Dimension(700, 500));
         this.setBackground(Color.WHITE);
@@ -19,10 +16,6 @@ public class WorldPanel extends JPanel implements ActionListener {
         play = new JButton("Play");
 
         play.addActionListener(this);
-//        play.setFocusPainted(false);
-//        play.setBackground(Color.GREEN);
-//        play.setOpaque(true);
-//        play.setBorderPainted(false);
 
         this.add(play);
 
@@ -41,7 +34,6 @@ public class WorldPanel extends JPanel implements ActionListener {
                 for(Cell cell: DataSource.getInstance().getCellArrayInstance()){
                     cell.setColor(Color.BLACK);
                 }
-                System.out.println("selected play");
                 world.play();
                 Boolean res = world.compare();
                 if (res){

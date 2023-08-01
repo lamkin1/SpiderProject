@@ -19,9 +19,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     private Block selectedBlock;
 
     JPanel buttonPanel = new JPanel();
-
-    //private Block chosenBlock;
-    //ConnectHelper connectHelper = new ConnectHelper();
     public WorkAreaPanel() {
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -67,7 +64,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         this.add(buttonPanel, BorderLayout.EAST);
 
         trashCan = new TrashCan(40, 450);
-
     }
 
     public void paintComponent(Graphics g) {
@@ -85,7 +81,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
 
     @Override
     public void mousePressed(MouseEvent e) {
-        //x_len = 30, y_len = 15;
         x1 = e.getX();
         y1 = e.getY();
 
@@ -118,8 +113,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             for(int i = 0; i < DataSource.getInstance().getBlocksRunInstance().size();i++) {
                 System.out.println(DataSource.getInstance().getBlocksRunInstance().get(i).getName());
             }
-            System.out.println("donezo");
-
 
             selectedBlock.moving(x_diff, y_diff);
 
@@ -157,13 +150,12 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     }
 
     @Override
-    public void mouseMoved(MouseEvent e) {//
+    public void mouseMoved(MouseEvent e) {
     }
 
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().getClass().getName().equals("BlockSpawner")) {
             if (((JButton) e.getSource()).getText().equals("Step")) {
-                System.out.println("making step block");
                 ActionBlock ab = new ActionBlock(375, 50, "Step");
                 DataSource.getInstance().getBlockArrayInstance().add(ab);
                 DataSource.getInstance().getBlocksRunInstance().add(ab);
@@ -171,7 +163,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             }
 
             if (((JButton) e.getSource()).getText().equals("Turn")) {
-                System.out.println("making turn block");
                 ActionBlock ab = new ActionBlock(375, 125, "Turn");
                 DataSource.getInstance().getBlockArrayInstance().add(ab);
                 DataSource.getInstance().getBlocksRunInstance().add(ab);
@@ -179,7 +170,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Red")) {
-                System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 200, "Paint Red");
                 DataSource.getInstance().getBlockArrayInstance().add(ab);
                 DataSource.getInstance().getBlocksRunInstance().add(ab);
@@ -187,7 +177,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Blue")) {
-                System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 275, "Paint Blue");
                 DataSource.getInstance().getBlockArrayInstance().add(ab);
                 DataSource.getInstance().getBlocksRunInstance().add(ab);
@@ -195,7 +184,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             }
 
             if (((JButton) e.getSource()).getText().equals("Paint Green")) {
-                System.out.println("making paint block");
                 ActionBlock ab = new ActionBlock(375, 350, "Paint Green");
                 DataSource.getInstance().getBlockArrayInstance().add(ab);
                 DataSource.getInstance().getBlocksRunInstance().add(ab);
@@ -203,13 +191,11 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
             }
 
             if (((JButton) e.getSource()).getText().equals("Loop")) {
-                System.out.println("making paint block");
                 LoopBlockDecorator b = new LoopBlockDecorator(375, 425);
                 DataSource.getInstance().getBlockArrayInstance().add(b);
                 DataSource.getInstance().getBlocksRunInstance().add(b);
                 repaint();
             }
         }
-
     }
 }

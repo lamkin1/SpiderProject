@@ -1,8 +1,6 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-
-//NEED TO IMPLEMENT STEP, TURN, PAINT, AND 1 LOOP BLOCK; LOOP BLOCK IS ONLY TIME TO USE DECORATOR
 public abstract class Block{
     Block next = null;
     Block prev = null;
@@ -17,13 +15,6 @@ public abstract class Block{
 
     public Color getColor() {
         return color;
-    }
-    public void setX_len(int x_len) {
-        this.x_len = x_len;
-    }
-
-    public void setY_len(int y_len) {
-        this.y_len = y_len;
     }
 
     public int getX_len() {

@@ -86,8 +86,6 @@ public class Spider {
         double locationY = spiderImage.getHeight() / 2;
         AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, locationX, locationY);
         AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-
-        // Drawing the rotated image at the required drawing locations
         spiderImage = op.filter(spiderImage, null);
     }
 

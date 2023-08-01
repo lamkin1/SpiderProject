@@ -19,9 +19,8 @@ public class NumberColorPair {
                 return Color.GREEN;
             case "blue":
                 return Color.BLUE;
-            // Add more cases for other predefined colors as needed
             default:
-                return null; // Return null for unsupported color names
+                return null;
         }
     }
 

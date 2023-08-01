@@ -44,7 +44,6 @@ public class LoopBlockDecorator extends Block{
             if(this == temp){continue;}
             do{
                 if((this.getY1() >= temp.getY2() - 5 && super.getY1() <= temp.getY2() + 5) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
-                    //System.out.println("hit");
                     DataSource.getInstance().getBlocksRunInstance().remove(this);
                     this.setY1(temp.getY2());
                     this.setX1(temp.getX1());
@@ -69,7 +68,6 @@ public class LoopBlockDecorator extends Block{
                         anchor.next = transfer;
                         temp2 = transfer;
                         do {
-                            //DOESN'T SHIFT PROPERLY FOR MORE THAN 1 BLOCK BEING ADDED IN THE MIDDLE
                             if (temp2 != null) {
                                 temp2.shift(y_len);
                                 temp2.setX1(temp.getX1());
@@ -85,7 +83,6 @@ public class LoopBlockDecorator extends Block{
                 temp = temp.next;
             }while(temp != null);
         }
-        //SORT blocks array by y value
         if(!first && !reconnecting){
             System.out.println("hit");
             prev.next = null;
@@ -93,5 +90,4 @@ public class LoopBlockDecorator extends Block{
             DataSource.getInstance().getBlocksRunInstance().add(this);
         }
     }
-
 }

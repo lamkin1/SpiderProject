@@ -5,8 +5,6 @@ import java.awt.*;
 public class ActionBlock extends Block{
     private int x_len = 70, y_len = 15;
 
-
-
     public ActionBlock(int x1, int y1, String action){
         super.setX1(x1);
         super.setX2(x1 + x_len);
@@ -31,8 +29,6 @@ public class ActionBlock extends Block{
         }
     }
 
-
-
     public void draw(Graphics g){
         g.setColor(super.getColor());
         g.fillRect(super.getX1(), super.getY1(), x_len, y_len);
@@ -49,7 +45,6 @@ public class ActionBlock extends Block{
             temp = DataSource.getInstance().getBlockArrayInstance().get(i);
             if(this == temp){continue;}
             do{
-
                 if((this.getY1() >= temp.getY2() - 5 && super.getY1() <= temp.getY2() + 5) && (x_avg >= temp.getX1() && x_avg <= temp.getX2())){
                     DataSource.getInstance().getBlocksRunInstance().remove(this);
                     if(temp.getName() == "Loop Block"){
@@ -70,7 +65,6 @@ public class ActionBlock extends Block{
                         anchor.next = transfer;
                         temp2 = transfer;
                         do {
-                            //DOESN'T SHIFT PROPERLY FOR MORE THAN 1 BLOCK BEING ADDED IN THE MIDDLE
                             if (temp2 != null) {
                                 temp2.shift(y_len);
                                 temp2.setX1(temp.getX1());
@@ -88,8 +82,6 @@ public class ActionBlock extends Block{
                         y_temp += y_len;
                         shift_temp = shift_temp.next;
                     }
-
-
                     if(DataSource.getInstance().getBlocksRunInstance().contains(this)){
                         first = true;
                     }
@@ -98,9 +90,7 @@ public class ActionBlock extends Block{
                 temp = temp.next;
             }while(temp != null);
         }
-        //SORT blocks array by y value
         if(!first && !reconnecting){
-            System.out.println("HITTT");
             if(prev != null) {
                 if (prev.getName() == "Loop Block") {
                     ((LoopBlockDecorator) prev).decoratedBlock = null;

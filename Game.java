@@ -6,7 +6,6 @@ public class Game extends JFrame implements ActionListener{
     private WorldPanel worldPanel;
     private WorkAreaPanel workAreaPanel;
     private LevelHelper lh = new LevelHelper();
-
     private Spider spider;
     int[] spiderLoc;
     public Game(){
@@ -30,21 +29,17 @@ public class Game extends JFrame implements ActionListener{
         level1.addActionListener(this);
         levels.add(level1);
 
-
         JButton level2 = new JButton("2");
         level2.addActionListener(this);
         levels.add(level2);
-
 
         JButton level3 = new JButton("3");
         level3.addActionListener(this);
         levels.add(level3);
 
-
         JButton level4 = new JButton("4");
         level4.addActionListener(this);
         levels.add(level4);
-
 
         JButton level5 = new JButton("5");
         level5.addActionListener(this);
@@ -53,7 +48,6 @@ public class Game extends JFrame implements ActionListener{
         JButton level6 = new JButton("6");
         level6.addActionListener(this);
         levels.add(level6);
-
 
         JButton level7 = new JButton("7");
         level7.addActionListener(this);
@@ -123,7 +117,7 @@ public class Game extends JFrame implements ActionListener{
                 showPopup("Welcome to Spider World! Use the blocks to move your spider to correctly color the grid based on the diamonds.");
             }
         });
-        timer.setRepeats(false); // Set to false to execute the action only once
+        timer.setRepeats(false);
         timer.start();
     }
 
@@ -135,19 +129,15 @@ public class Game extends JFrame implements ActionListener{
         Game.setResizable(false);
     }
 
-    // Method to show the pop-up window
     private void showPopup(String instructions) {
-        // Create a new dialog window
+
         JDialog popup = new JDialog(this, "Directions", true);
 
-        // Set the size and position of the dialog window
         popup.setSize(800, 300);
         popup.setLocationRelativeTo(this);
 
-        // Convert the instructions string to HTML format with line breaks
         String htmlInstructions = "<html>" + instructions.replace("\n", "<br>") + "</html>";
 
-        // Add the content to the pop-up window using a JTextPane
         JTextPane directionsPane = new JTextPane();
         directionsPane.setContentType("text/html");
         directionsPane.setText(htmlInstructions);
@@ -158,7 +148,6 @@ public class Game extends JFrame implements ActionListener{
         JScrollPane scrollPane = new JScrollPane(directionsPane);
         popup.add(scrollPane, BorderLayout.CENTER);
 
-        // Display the pop-up window
         popup.setVisible(true);
     }
 
@@ -169,7 +158,6 @@ public class Game extends JFrame implements ActionListener{
         spider.setSpiderY(spiderLoc[1]);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().getClass().getName().equals("javax.swing.JButton")) {
@@ -178,56 +166,72 @@ public class Game extends JFrame implements ActionListener{
                 lh.load(1);
                 setSpiderLoc();
                 checkRotate(1);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("2")) {
                 DataSource.getInstance().setLevel(2);
                 lh.load(2);
                 setSpiderLoc();
                 checkRotate(2);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("3")) {
                 DataSource.getInstance().setLevel(3);
                 lh.load(3);
                 setSpiderLoc();
                 checkRotate(3);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("4")) {
                 DataSource.getInstance().setLevel(4);
                 lh.load(4);
                 setSpiderLoc();
                 checkRotate(4);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("5")) {
                 DataSource.getInstance().setLevel(5);
                 lh.load(5);
                 setSpiderLoc();
                 checkRotate(5);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("6")) {
                 DataSource.getInstance().setLevel(6);
                 lh.load(6);
                 setSpiderLoc();
                 checkRotate(6);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("7")) {
                 DataSource.getInstance().setLevel(7);
                 lh.load(7);
                 setSpiderLoc();
                 checkRotate(7);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("8")) {
                 DataSource.getInstance().setLevel(8);
                 lh.load(8);
                 setSpiderLoc();
                 checkRotate(8);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
                 showPopup("This level introduces loops! The repeat block contains other blocks. \nThe blocks stacked inside the repeat block will be performed over and over until the spider is at the wall. \nAnother way of describing it is that the nested blocks will be performed as many times as necessary for the spider to reach the wall. ");
             }
             if (((JButton) e.getSource()).getText().equals("9")) {
@@ -235,49 +239,63 @@ public class Game extends JFrame implements ActionListener{
                 lh.load(9);
                 setSpiderLoc();
                 checkRotate(9);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("10")) {
                 DataSource.getInstance().setLevel(10);
                 lh.load(10);
                 setSpiderLoc();
                 checkRotate(10);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("11")) {
                 DataSource.getInstance().setLevel(11);
                 lh.load(11);
                 setSpiderLoc();
                 checkRotate(11);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("12")) {
                 DataSource.getInstance().setLevel(12);
                 lh.load(12);
                 setSpiderLoc();
                 checkRotate(12);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("13")) {
                 DataSource.getInstance().setLevel(12);
                 lh.load(13);
                 setSpiderLoc();
                 checkRotate(13);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("14")) {
                 DataSource.getInstance().setLevel(14);
                 lh.load(14);
                 setSpiderLoc();
                 checkRotate(14);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("15")) {
                 DataSource.getInstance().setLevel(15);
                 lh.load(15);
                 setSpiderLoc();
                 checkRotate(15);
+                DataSource.getInstance().clearBlocks();
                 worldPanel.repaint();
+                workAreaPanel.repaint();
             }
             if (((JButton) e.getSource()).getText().equals("Reset")) {
                 DataSource.getInstance().clearBlocks();

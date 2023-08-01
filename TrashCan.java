@@ -22,7 +22,7 @@ public class TrashCan extends JPanel {
         if(trashcan.intersects(block)){
             DataSource.getInstance().getBlocksRunInstance().remove(b);
             DataSource.getInstance().getBlockArrayInstance().remove(b);
-            }
+        }
     }
 }
 
