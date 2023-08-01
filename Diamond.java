@@ -10,21 +10,10 @@ public class Diamond{
     }
 
     public void draw(Graphics g){
-        //g.setColor(color);
-        //g.fillRect(x,y,10,10);
-
-        int size = 5;
-        int centerX = x + 17;
-        int centerY = y + 17;
-
-        int[] xPoints = {centerX, centerX + size, centerX, centerX - size};
-        int[] yPoints = {centerY - size, centerY, centerY + size, centerY};
-
-        // Set the color you want to use for drawing the diamond
         g.setColor(color);
+        g.fillRect(x,y,10,10);
 
-        // Draw the diamond using two filled triangles
-        g.fillPolygon(xPoints, yPoints, 4);
+
 
     }
 
