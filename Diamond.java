@@ -11,7 +11,7 @@ public class Diamond{
 
     public void draw(Graphics g){
         g.setColor(color);
-        g.fillRect(x,y,10,10);
+        g.fillRect(x + 17,y + 17,10,10);
 
 
 
