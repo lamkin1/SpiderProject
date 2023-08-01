@@ -5,16 +5,13 @@ public class Diamond{
     int x, y;
     public Diamond(Color color, int x, int y){
         this.color = color;
-        this.x = x;
-        this.y = y;
+        this.x = x+15;
+        this.y = y+15;
     }
 
     public void draw(Graphics g){
         g.setColor(color);
-        g.fillRect(x + 17,y + 17,10,10);
-
-
-
+        g.fillRect(x,y,5,5);
     }
 
     public Color getColor() {
