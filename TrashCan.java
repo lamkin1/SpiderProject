@@ -20,9 +20,9 @@ public class TrashCan extends JPanel {
         Rectangle block = new Rectangle(b.getX1(), b.getY1(), b.getX2()-b.getX1(), b.getY2()-b.getY1());
 
         if(trashcan.intersects(block)){
-            DataSource.getInstance().getBlockArrayInstance().remove(b);
             DataSource.getInstance().getBlocksRunInstance().remove(b);
-        }
+            DataSource.getInstance().getBlockArrayInstance().remove(b);
+            }
     }
 }
 

@@ -11,7 +11,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
     private BlockSpawner paintGreen;
     private BlockSpawner turn;
     private BlockSpawner loop;
-    private boolean deleted = false;
 
     private TrashCan trashCan;
 
@@ -89,7 +88,6 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         //x_len = 30, y_len = 15;
         x1 = e.getX();
         y1 = e.getY();
-        deleted = false;
 
         for(Block block: DataSource.getInstance().getBlockArrayInstance()){
             if (((block instanceof ActionBlock) || (block instanceof LoopBlockDecorator))&& (block.getX1() <= x1 && x1 <= block.getX1() + 70) && (block.getY1() <= y1 && y1 <= block.getY1() + 15)) { // change to follow if inside block
@@ -114,9 +112,8 @@ public class WorkAreaPanel extends JPanel implements MouseListener, MouseMotionL
         if (selectedBlock != null){
             int blockLength = selectedBlock.getX_len();
             int blockHeight = selectedBlock.getY_len();
-            if (((x_diff > 40 || x_diff + blockLength < 60) && (y_diff > 435 || y_diff + blockHeight < 495)) && (!deleted)){
+            if (((x_diff > 40 || x_diff + blockLength < 60) && (y_diff > 435 || y_diff + blockHeight < 495))){
                 trashCan.delete(selectedBlock);
-                deleted = true;
             }
             for(int i = 0; i < DataSource.getInstance().getBlocksRunInstance().size();i++) {
                 System.out.println(DataSource.getInstance().getBlocksRunInstance().get(i).getName());
