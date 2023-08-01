@@ -42,8 +42,9 @@ public class WorldPanel extends JPanel implements ActionListener {
                 world.play();
                 Boolean res = world.compare();
                 if (res){
-                    LevelHelper lh = new LevelHelper();
-                    lh.load(DataSource.getInstance().getLevel() + 1);
+
+//                    LevelHelper lh = new LevelHelper();
+//                    lh.load(DataSource.getInstance().getLevel() + 1);
                 }
             }
         }

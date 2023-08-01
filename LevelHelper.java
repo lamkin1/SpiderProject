@@ -99,5 +99,15 @@ public class LevelHelper {
         int spiderCell = spiderSpawn;
         DataSource.getInstance().setSpiderLocation(x_default + 10 + x_length * (((spiderCell % size)== 0) ? size-1 : ((spiderCell % size) - 1)),x_default + (int) (y_length * ((Math.floor(spiderCell % size) == 0) ? Math.floor(spiderCell/size) - 1 : Math.floor(spiderCell / size))));
         DataSource.getInstance().setOgSpiderLocation(x_default + 10 + x_length * (((spiderCell % size)== 0) ? size-1 : ((spiderCell % size) - 1)),x_default + (int) (y_length * ((Math.floor(spiderCell % size) == 0) ? Math.floor(spiderCell/size) - 1 : Math.floor(spiderCell / size))));
+
+        //setting cells for having diamonds or not
+        for(Cell cell : DataSource.getInstance().getCellArrayInstance()) {
+            for (Diamond diamond : DataSource.getInstance().getDiamondArrayInstance()) {
+                if ((diamond.getX() >= cell.getX() && diamond.getX() <= (cell.getX() + 35)) && (diamond.getY() >= cell.getY() && diamond.getY() <= (cell.getY() + 35))) {
+                    cell.setHasDiamond(true);
+                    cell.setDiamondColor(diamond.getColor());
+                }
+            }
+        }
     }
 }
