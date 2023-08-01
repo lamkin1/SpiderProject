@@ -42,15 +42,12 @@ public class WorldPanel extends JPanel implements ActionListener {
                 world.play();
                 Boolean res = world.compare();
                 if (res){
-                    success = true;
-//                    LevelHelper lh = new LevelHelper();
-//                    lh.load(DataSource.getInstance().getLevel() + 1);
+                    showSuccessPopup();
                 }
             }
         }
     }
-
-    public boolean returnSuccess(){
-        return success;
+    public void showSuccessPopup() {
+        JOptionPane.showMessageDialog(this, "Congratulations! You may now move onto the next level!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }
