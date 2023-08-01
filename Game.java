@@ -337,7 +337,7 @@ public class Game extends JFrame implements ActionListener{
                 case "right":
                     break;
                 case "left":
-                    spider.rotateImage(180);
+                     spider.rotateImage(180);
                     break;
             }
             spider.setDirection("right");
